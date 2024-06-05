@@ -1,0 +1,8 @@
+# emacs
+*~
+\#*\#
+.#*
+tables.org
+.env
+vendor/
+composer.lock
