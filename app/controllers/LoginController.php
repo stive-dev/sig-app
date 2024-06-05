@@ -13,7 +13,7 @@ class LoginController extends Controller {
     
     var_dump($userModel->select());
 
-    require_once __ROOT_PATH__ . "/app/views/index.php";
+    require_once __ROOT_PATH__ . "/app/views/login.php";
   }
 }
 

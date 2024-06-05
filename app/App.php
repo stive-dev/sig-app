@@ -11,7 +11,7 @@ if(isset($_GET["url"])) {
 }
 
 // routes
-if($url == "aaa/other") {
+if($url == "login") {
   $loginController = new LoginController();
   $loginController->index();
 }
