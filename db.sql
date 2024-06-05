@@ -55,11 +55,11 @@ CREATE TABLE materia_prima(
        descripcion VARCHAR(100)
 );
 
-ALTER TABLE control ADD CONSTRAINT `materia_prima_control_fk` FOREIGN KEY id_materia_prima REFERENCES materia_prima(id);
-ALTER TABLE control ADD CONSTRAINT `vehiculo_control_fk` FOREIGN KEY placa_vehiculo REFERENCES vehiculo(placa);
-ALTER TABLE control ADD CONSTRAINT `motorista_control_fk` FOREIGN KEY dui_motorista REFERENCES motorista(dui);
-ALTER TABLE control ADD CONSTRAINT `motivo_salida_control_fk` FOREIGN KEY id_motivo_salida REFERENCES motivo(id);
-ALTER TABLE control ADD CONSTRAINT `motivo_entrada_control_fk` FOREIGN KEY id_motivo_entrada REFERENCES motivo(id);
+ALTER TABLE control ADD CONSTRAINT `materia_prima_control_fk` FOREIGN KEY(id_materia_prima) REFERENCES materia_prima(id);
+ALTER TABLE control ADD CONSTRAINT `vehiculo_control_fk` FOREIGN KEY(placa_vehiculo) REFERENCES vehiculo(placa);
+ALTER TABLE control ADD CONSTRAINT `motorista_control_fk` FOREIGN KEY(dui_motorista) REFERENCES motorista(dui);
+ALTER TABLE control ADD CONSTRAINT `motivo_salida_control_fk` FOREIGN KEY(id_motivo_salida) REFERENCES motivo(id);
+ALTER TABLE control ADD CONSTRAINT `motivo_entrada_control_fk` FOREIGN KEY(id_motivo_entrada) REFERENCES motivo(id);
 
 -- MATERIA_PRIMA_ANALISIS TABLE
 CREATE TABLE materia_prima_analisis(
@@ -77,4 +77,4 @@ CREATE TABLE materia_prima_analisis(
        estado VARCHAR(10)
 );
 
-ALTER TABLE materia_prima_analisis ADD CONSTRAINT `materia_prima_analisis_materia_prima_fk` FOREIGN KEY id_materia_prima REFERENCES materia_prima(id);
+ALTER TABLE materia_prima_analisis ADD CONSTRAINT `materia_prima_analisis_materia_prima_fk` FOREIGN KEY(id_materia_prima) REFERENCES materia_prima(id);
