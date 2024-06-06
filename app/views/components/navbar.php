@@ -6,11 +6,11 @@
     
     <?php for($i = 0; $i < count($options); $i++): ?>
       <?php if($options[$i] == $active): ?>
-        <a href="<?php $url[$i] ?>" class="navbar__option navbar__option--active">
+        <a href="<?php echo $url[$i]; ?>" class="navbar__option navbar__option--active">
           <?= $options[$i] ?>
         </a>
       <?php else: ?>
-        <a href="<?php $url[$i] ?>" class="navbar__option">
+        <a href="<?php echo $url[$i]; ?>" class="navbar__option">
           <?= $options[$i] ?>
         </a>
       <?php endif ?>

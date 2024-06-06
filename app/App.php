@@ -23,6 +23,12 @@ if($url == "login") {
 if($url == "motoristas") {
   $motoristaController = new MotoristaController();
   $motoristaController->index();
+}else if($url == "motoristas/add") {
+  $motoristaController = new MotoristaController();
+  $motoristaController->add();
+}else if($url == "motoristas/modify") {
+  $motoristaController = new MotoristaController();
+  $motoristaController->modify();
 }else if($url == "motoristas/get") {
   $motoristaController = new MotoristaController();
   echo json_encode($motoristaController->get());

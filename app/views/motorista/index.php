@@ -37,7 +37,7 @@
         <h2 class="title__2">Motoristas en el Sistema <?= count($motoristas) ?></h2>
       </div>
       <div class="header__content">
-        <a href="<?php $url[$i] ?>" class="navbar__option navbar__option--active">Agregar Nuevo</a>
+        <a href="<?php echo __URL__ . '/motoristas/add'; ?>" class="navbar__option navbar__option--active">Agregar Nuevo</a>
       </div>
     </div>
 
@@ -58,7 +58,7 @@
                 <td class="table__td"><?= $motorista->nombres ?></td>
                 <td class="table__td"><?= $motorista->apellidos ?></td>
                 <td class="table__td table__td--options">
-                  <a href="<?php $url[$i] ?>" class="table__option table__option--modify">Modificar</a>
+                  <a href="<?php echo __URL__ . '/motoristas/modify?dui=' . $motorista->dui; ?>" class="table__option table__option--modify">Modificar</a>
                   <a href="<?php echo __URL__ . '/motoristas/delete?dui=' . $motorista->dui; ?>" class="table__option table__option--delete">Borrar</a>
                 </td>
               </tr>
@@ -68,7 +68,7 @@
                 <td class="table__td"><?= $motorista->nombres ?></td>
                 <td class="table__td"><?= $motorista->apellidos ?></td>
                 <td class="table__td table__td--options">
-                  <a href="<?php $url[$i] ?>" class="table__option table__option--modify">Modificar</a>
+                  <a href="<?php echo __URL__ . '/motoristas/modify?dui=' . $motorista->dui; ?>" class="table__option table__option--modify">Modificar</a>
                   <a href="<?php echo __URL__ . '/motoristas/delete?dui=' . $motorista->dui; ?>" class="table__option table__option--delete">Borrar</a>
                 </td>
               </tr>
