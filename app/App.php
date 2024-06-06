@@ -4,6 +4,7 @@
 require_once "controllers/LoginController.php";
 require_once "models/MotoristaModel.php";
 require_once "controllers/MotoristaController.php";
+require_once "controllers/dashboardController.php";
 
 // config
 $url = "";
@@ -34,6 +35,12 @@ if($url == "motoristas") {
 }else if($url == "motoristas/update") {
   $motoristaController = new MotoristaController();
   $motoristaController->update();
+}
+
+if($url == "principal") {
+  echo $_POST["email"];
+  $dashboardController = new dashboardController();
+  $dashboardController->index();
 }
 
 ?>

@@ -51,32 +51,21 @@
                             <!-- TABS CONTENT LOGIN -->
                             <div id="login-tab-content" class="active">
 
-                                <form class="login-form" action="../app/controllers/LoginController.php" method="post">
+                                <form class="login-form" action="/sig-app/public_html/login" method="post">
                                     <p></p>
-                                    <input type="text" class="input" id="email" autocomplete="off" placeholder="Correo electronico">
-                                    <input type="password" class="input" id="contrasena" autocomplete="off" placeholder="contraseña">
+                                    <input type="text" class="input" id="email" name="email" autocomplete="off" placeholder="Correo electronico">
+                                    <input type="password" class="input" id="contrasena" name="contrasena" autocomplete="off" placeholder="contraseña">
                                     <input type="checkbox" class="checkbox" checked id="remember_me">
                                     <label for="remember_me">Recuerdame</label>
                                     <div class="help-action">
                                         <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">¿Olvidaste tu contraseña?</a></p>
                                     </div>
-                                    <input type="submit" class="button" value="Acceso">
+                                    <input type="submit" class="button" name="iniciarSesion" value="iniciarSesion">
                                 </form>
 
                             </div>
                             <!-- TABS CONTENT SIGNUP -->
-                            <div id="signup-tab-content">
-                                <form class="signup-form" action="" method="post">
-                                    <input type="email" class="input" id="user_email" autocomplete="off" placeholder="Email">
-                                    <input type="text" class="input" id="user_name" autocomplete="off" placeholder="Username">
-                                    <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="Password">
-                                    <input type="submit" class="button" value="Sign Up">
-                                </form>
-                                <div class="help-action">
-                                    <p>Copyright 2024 Saram S.A de C.V</p>
-                                    <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="agree" href="#">Terminos de servicio</a></p>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
