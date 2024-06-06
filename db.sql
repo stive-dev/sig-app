@@ -7,6 +7,7 @@ CREATE TABLE usuario(
        dui VARCHAR(10) PRIMARY KEY,
        nombres VARCHAR(60),
        apellido VARCHAR(60),
+       email VARCHAR(50),
        contrasena VARCHAR(100)
 );
 

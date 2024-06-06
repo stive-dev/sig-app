@@ -27,9 +27,6 @@
                 </div>
             </div>
 
-
-            <!-- RECOVERY -->
-            
             <!-- SLIDER -->
             <div class="content">
                 <img src="../public_html/img/mundo.png" />
@@ -53,10 +50,10 @@
                             <!-- TABS CONTENT LOGIN -->
                             <div id="login-tab-content" class="active">
 
-                                <form class="login-form" action="" method="post">
-
-                                    <input type="text" class="input" id="user_login" autocomplete="off" placeholder="Correo electronico">
-                                    <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="contraseña">
+                                <form class="login-form" action="../app/controllers/LoginController.php" method="post">
+                                    <p></p>
+                                    <input type="text" class="input" id="email" autocomplete="off" placeholder="Correo electronico">
+                                    <input type="password" class="input" id="contrasena" autocomplete="off" placeholder="contraseña">
                                     <input type="checkbox" class="checkbox" checked id="remember_me">
                                     <label for="remember_me">Recuerdame</label>
                                     <div class="help-action">

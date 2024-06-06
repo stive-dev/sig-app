@@ -579,7 +579,7 @@ input {
     opacity: 0;
     content: '';
     background-color: transparent;
-    border: solid #67DAC6;
+    border: solid #4532bc;
     border-width: 0 0 3px 3px;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
@@ -674,7 +674,7 @@ input {
     }
     #slideshow h2 span {
         padding: 5px 0;
-        border: solid #B6EDE3;
+        border: solid #3c11d9;
         border-width: 1px 0;
     }
     #slideshow p {
