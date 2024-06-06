@@ -9,13 +9,6 @@ class UserModel extends Model
     parent::__construct();
   }
 
-  public function select()
-  {
-    $query = $this->connection->prepare("SELECT * FROM usuario");
-    $query->execute();
-
-    return $query->fetch(PDO::FETCH_OBJ);
-  }
   public function iniciarSesion($email, $contrasena)
   {
     $sql = "SELECT * FROM usuario WHERE email = :email";
@@ -34,5 +27,15 @@ class UserModel extends Model
     } else {
       return false;
     }
+  }
+
+  public function obtenerUsuarioPorId($idUsuario)
+  {
+    $sql = "SELECT * FROM usuarios WHERE id_usuario = :idUsuario";
+    $stmt = $this->connection->prepare($sql);
+    $stmt->bindParam(':idUsuario', $idUsuario);
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 }

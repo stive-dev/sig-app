@@ -12,29 +12,47 @@ class LoginController extends Controller
 
 
 
-  public function index() {
+  public function index()
+  {
     $userModel = new UserModel();
+    require_once __ROOT_PATH__ . "/app/views/Login.php";
 
-    require_once __ROOT_PATH__ . "/app/views/login.php";
-  ;
-    
+    session_start();
+
+    if (isset($_POST['iniciarSesion'])) {
       $email = $_POST['email'];
       $contrasena = $_POST['contrasena'];
 
       $usuarioLogin = $userModel->iniciarSesion($email, $contrasena);
+      echo "$usuarioLogin";
 
       if ($usuarioLogin) {
-        // Iniciar sesión del usuario y redirigir a la página principal
-        echo "Bienvenido " . $usuarioLogin['nombre'] . " " . $usuarioLogin['apellido'];
-        header("Location: /app/views/principal.php");
-        die();
+        $_SESSION['usuario'] = $usuarioLogin;
+        // Redirigir a la página principal según el rol del usuario
+        if ($usuarioLogin['rol'] == "administrador") {
+          header("Location: principal");
+          echo "funciona ";
+        } else if ($usuarioLogin['rol'] == "usuario") {
+          header("Location: pagina_usuario.php");
+        } else {
+          echo "Rol no válido";
+        }
       } else {
-          
-        echo "<div>class='alert alert-primary' role='alert'> <strong>Alert Heading</strong> Credenciales incorrectas</div>";
-
-        
+        echo "Credenciales incorrectas";
       }
-    
+    }
 
+    if (isset($_SESSION['usuario'])) {
+      $usuarioActual = $userModel->obtenerUsuarioPorId($_SESSION['usuario']['id_usuario']);
+
+      if ($usuarioActual) {
+        echo "Bienvenido " . $usuarioActual['nombre'] . " " . $usuarioActual['apellido'] . " (" . $usuarioActual['rol'] . ")";
+      } else {
+        unset($_SESSION['usuario']);
+        header("Location: login.php");
+      }
+    } else {
+      echo "<a href='login.php'>Iniciar Sesión</a>";
+    }
   }
 }
