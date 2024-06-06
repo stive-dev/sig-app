@@ -14,9 +14,9 @@ class LoginController extends Controller
 
   public function index()
   {
-    $userModel = new UserModel();
-    require_once __ROOT_PATH__ . "/app/views/Login.php";
-
+    $userModel = new UserModel([], "usuario");
+    require_once __ROOT_PATH__ . "/app/views/login.php";
+    
     session_start();
 
     if (isset($_POST['iniciarSesion'])) {

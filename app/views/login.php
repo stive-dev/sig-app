@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lOGIN</title>
-    <link rel="stylesheet" type="text/css" href="../public_html/css/login.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo __URL__ . '/css/login.css'; ?>" />
-
 
 </head>
 
@@ -30,7 +28,7 @@
 
             <!-- SLIDER -->
             <div class="content">
-                <img src="../public_html/img/mundo.png" />
+              <img alt="" src="<?php echo __URL__ . '/img/mundo.png'; ?>"/>
 
 
             </div>

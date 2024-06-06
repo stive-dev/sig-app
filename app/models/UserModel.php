@@ -4,11 +4,6 @@ require_once "Model.php";
 
 class UserModel extends Model
 {
-  public function __construct()
-  {
-    parent::__construct();
-  }
-
   public function iniciarSesion($email, $contrasena)
   {
     $sql = "SELECT * FROM usuario WHERE email = :email";
