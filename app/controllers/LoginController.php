@@ -10,8 +10,11 @@ class LoginController extends Controller
     parent::__construct();
   }
 
-  public function index()
-  {
+
+
+  public function index() {
+    $userModel = new UserModel();
+
     require_once __ROOT_PATH__ . "/app/views/login.php";
     $userModel = new UserModel();
 

@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lOGIN</title>
     <link rel="stylesheet" type="text/css" href="../public_html/css/login.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo __URL__ . '/css/login.css'; ?>" />
 
 
 </head>
 
 <body>
-    <img class="transparencia" src="../public_html/img/Transparencia.svg" alt="" width="1890px" height="500px">
+    <img class="transparencia" src="<?php echo __URL__ . '/img/Transparencia.svg' ?>" alt="" width="1890px" height="500px">
 
 
     <!-- LOGIN MODULE -->
