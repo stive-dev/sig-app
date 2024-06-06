@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS sig_app;
 USE sig_app;
 
 -- USUARIO TABLE
-CREATE TABLE usuario(
+CREATE TABLE IF NOT EXISTS usuario(
        dui VARCHAR(10) PRIMARY KEY,
        nombres VARCHAR(60),
        apellido VARCHAR(60),
@@ -12,7 +12,7 @@ CREATE TABLE usuario(
 );
 
 -- VEHICULO TABLE
-CREATE TABLE vehiculo(
+CREATE TABLE IF NOT EXISTS vehiculo(
        placa VARCHAR(10) PRIMARY KEY,
        tipo VARCHAR(10),
        activo BOOLEAN,
@@ -20,20 +20,20 @@ CREATE TABLE vehiculo(
 );
 
 -- MOTORISTA TABLE
-CREATE TABLE motorista(
+CREATE TABLE IF NOT EXISTS motorista(
        dui VARCHAR(10) PRIMARY KEY,
        nombres VARCHAR(60),
        apellidos VARCHAR(60)
 );
 
 -- MOTIVO TABLE
-CREATE TABLE motivo(
+CREATE TABLE IF NOT EXISTS motivo(
        id INT PRIMARY KEY AUTO_INCREMENT,
        motivo VARCHAR(60)
 );
 
 -- CONTROL TABLE
-CREATE TABLE control(
+CREATE TABLE IF NOT EXISTS control(
        id INT PRIMARY KEY AUTO_INCREMENT,
        id_materia_prima INT,
        placa_vehiculo VARCHAR(10),
@@ -49,7 +49,7 @@ CREATE TABLE control(
 );
 
 -- MATERIA_PRIMA TABLE
-CREATE TABLE materia_prima(
+CREATE TABLE IF NOT EXISTS materia_prima(
        id INT PRIMARY KEY,
        tipo VARCHAR(10),
        proveedor VARCHAR(60),
@@ -63,7 +63,7 @@ ALTER TABLE control ADD CONSTRAINT `motivo_salida_control_fk` FOREIGN KEY(id_mot
 ALTER TABLE control ADD CONSTRAINT `motivo_entrada_control_fk` FOREIGN KEY(id_motivo_entrada) REFERENCES motivo(id);
 
 -- MATERIA_PRIMA_ANALISIS TABLE
-CREATE TABLE materia_prima_analisis(
+CREATE TABLE IF NOT EXISTS materia_prima_analisis(
        id INT PRIMARY KEY,
        lote INT,
        id_materia_prima INT,
