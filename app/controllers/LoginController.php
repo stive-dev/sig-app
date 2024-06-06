@@ -11,8 +11,6 @@ class LoginController extends Controller {
   public function index() {
     $userModel = new UserModel();
     
-    var_dump($userModel->select());
-
     require_once __ROOT_PATH__ . "/app/views/login.php";
   }
 }
