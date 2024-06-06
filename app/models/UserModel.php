@@ -18,7 +18,7 @@ class UserModel extends Model
   }
   public function iniciarSesion($email, $contrasena)
   {
-    $sql = "SELECT * FROM usuarios WHERE email = :email";
+    $sql = "SELECT * FROM usuario WHERE email = :email";
     $stmt = $this->connection->prepare($sql);
     $stmt->bindParam(':email', $email);
     $stmt->execute();

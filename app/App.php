@@ -2,6 +2,7 @@
 
 // controllers includes
 require_once "controllers/LoginController.php";
+require_once "controllers/dashboardController.php";
 
 // config
 $url = "";
@@ -16,8 +17,11 @@ if($url == "login") {
   $loginController->index();
 }
 
-if($url == "aaa/other2") {
-  echo "ddddxx";
+if($url == "principal") {
+  echo $_POST["email"];
+  $dashboardController = new dashboardController();
+  $dashboardController->index();
+
 }
 
 ?>

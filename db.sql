@@ -8,7 +8,8 @@ CREATE TABLE usuario(
        nombres VARCHAR(60),
        apellido VARCHAR(60),
        email VARCHAR(50),
-       contrasena VARCHAR(100)
+       contrasena VARCHAR(100),
+       rol VARCHAR(50)
 );
 
 -- VEHICULO TABLE

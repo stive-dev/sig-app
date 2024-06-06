@@ -16,9 +16,8 @@ class LoginController extends Controller
     $userModel = new UserModel();
 
     require_once __ROOT_PATH__ . "/app/views/login.php";
-    $userModel = new UserModel();
-
-    if (isset($_POST['iniciarSesion'])) {
+  ;
+    
       $email = $_POST['email'];
       $contrasena = $_POST['contrasena'];
 
@@ -27,13 +26,15 @@ class LoginController extends Controller
       if ($usuarioLogin) {
         // Iniciar sesión del usuario y redirigir a la página principal
         echo "Bienvenido " . $usuarioLogin['nombre'] . " " . $usuarioLogin['apellido'];
-        header("Location: /app/views/index.php");
+        header("Location: /app/views/principal.php");
         die();
       } else {
-        echo "Credenciales incorrectas";
-      }
-    }
+          
+        echo "<div>class='alert alert-primary' role='alert'> <strong>Alert Heading</strong> Credenciales incorrectas</div>";
 
+        
+      }
+    
 
   }
 }
