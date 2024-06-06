@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('/sig-app/public_html/css/table/style.css');
+
+body, h1, h2, h3, h4, p {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+body {
+    background-color: #151420;
+    font-family: "Open Sans";
+}
+
+.title__1, .title__2, .title__3 {
+    color: #ffffff;
+    padding: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    padding: 10px 60px 10px 0px;
+}
+
+.header__content {
+    border-radius: 10px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

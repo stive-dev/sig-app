@@ -5,6 +5,8 @@ require_once __ROOT_PATH__ . "/app/models/MotoristaModel.php";
 
 class MotoristaController extends Controller {
   public function index() {
+    $motoristaModel = new MotoristaModel([], "motorista");
+    $motoristas = $motoristaModel->select();
     require_once __ROOT_PATH__ . "/app/views/motorista/index.php";
   }
   
@@ -24,7 +26,7 @@ class MotoristaController extends Controller {
   }
   
   public function delete() {
-    $motoristaModel = new MotoristaModel(array_values($_POST), "motorista");
+    $motoristaModel = new MotoristaModel([$_GET["dui"]], "motorista");
     $motoristaModel->delete();
   }
 }

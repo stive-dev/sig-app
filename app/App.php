@@ -32,6 +32,7 @@ if($url == "motoristas") {
 }else if($url == "motoristas/delete") {
   $motoristaController = new MotoristaController();
   $motoristaController->delete();
+  header("Location: " . __URL__ . "/motoristas");
 }else if($url == "motoristas/update") {
   $motoristaController = new MotoristaController();
   $motoristaController->update();

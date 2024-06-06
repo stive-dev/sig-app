@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #3F3E4C;
+    height: 64px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__left {
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+}
+
+.navbar__right {
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+}
+
+.navbar__logo {
+    width: 64px;
+    height: auto;
+}
+
+.navbar__option {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar__option:hover {
+    background-color: #00C893;
+}
+
+.navbar__option--active {
+    background-color: #00C893;
+}
+
+.navbar__option--session {
+    background-color: #e1646a;
+}
