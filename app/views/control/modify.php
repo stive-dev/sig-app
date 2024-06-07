@@ -18,17 +18,18 @@
       "Análisis de inventario",
       "Motivos",
       "Motoristas",
-      "Motivos"
+      "Vehiculos"
     ] ?>
     <?php $url = [
-      "#",
-      "#",
-      "#",
-      "# de inventario",
-      "#",
+      __URL__ . "/dashboard",
       __URL__ . "/controles",
-      "#"
+      __URL__ . "/materias_primas",
+      __URL__ . "/materias_primas_analisis",
+      __URL__ . "/motivos",
+      __URL__ . "/motoristas",
+      __URL__ . "/vehiculos"
     ] ?>
+    
     <?php require_once __ROOT_PATH__ . "/app/views/components/navbar.php" ?>
     <!-- TEMPLATE CODE -->
 
