@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Motoristas" ?>
+    <?php $active = "Vehiculos" ?>
     <?php $options = [
       "Dashboard",
       "Control",
@@ -21,23 +21,24 @@
       "Vehiculos"
     ] ?>
     <?php $url = [
-      "#",
-      "#",
-      "#",
-      "# de inventario",
-      "#",
+      __URL__ . "/dashboard",
+      __URL__ . "/controles",
+      __URL__ . "/materias_primas",
+      __URL__ . "/materias_primas_analisis",
+      __URL__ . "/motivos",
       __URL__ . "/motoristas",
-      "#"
+      __URL__ . "/vehiculos"
     ] ?>
+    
     <?php require_once __ROOT_PATH__ . "/app/views/components/navbar.php" ?>
     <!-- TEMPLATE CODE -->
 
     <div class="header">
       <div class="header__content">
-        <h2 class="title__2">Agregar Motorista al Sistema</h2>
+        <h2 class="title__2">Agregar Vehiculo al Sistema</h2>
       </div>
       <div class="header__content">
-        <a href="<?php echo __URL__ . '/motoristas'; ?>" class="navbar__option navbar__option--active">Regresar</a>
+        <a href="<?php echo __URL__ . '/vehiculos'; ?>" class="navbar__option navbar__option--active">Regresar</a>
       </div>
     </div>
 

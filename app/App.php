@@ -7,6 +7,7 @@ require_once "controllers/VehiculoController.php";
 require_once "controllers/MotivoController.php";
 require_once "controllers/MateriaPrimaController.php";
 require_once "controllers/ControlController.php";
+require_once "controllers/MateriaPrimaAnalisisController.php";
 require_once "controllers/dashboardController.php";
 
 // config
@@ -153,6 +154,46 @@ if($url == "controles") {
   $controlController->update();
 }
 
+
+
+
+
+
+
+
+// materias primas routes 
+if($url == "materias_primas_analisis") {
+  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+  $materiaPrimaAnalisisController->index();
+}else if($url == "materias_primas_analisis/add") {
+  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+  $materiaPrimaAnalisisController->add();
+}else if($url == "materias_primas_analisis/modify") {
+  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+  $materiaPrimaAnalisisController->modify();
+}else if($url == "materias_primas_analisis/get") {
+  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+  echo json_encode($materiaPrimaAnalisisController->get());
+}else if($url == "materias_primas_analisis/insert") {
+  try {
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    $materiaPrimaAnalisisController->post();
+  }catch(Exception $err) {
+    echo $err->getMessage();
+  }
+  
+}else if($url == "materias_primas_analisis/delete") {
+  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+  $materiaPrimaAnalisisController->delete();
+}else if($url == "materias_primas_analisis/update") {
+  try {
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    $materiaPrimaAnalisisController->update();
+  }catch(Exception $err) {
+    echo $err->getMessage();
+  }
+  
+}
 
 
 
