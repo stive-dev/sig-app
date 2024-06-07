@@ -2,8 +2,9 @@
 
 // controllers includes
 require_once "controllers/LoginController.php";
-require_once "models/MotoristaModel.php";
 require_once "controllers/MotoristaController.php";
+require_once "controllers/VehiculoController.php";
+require_once "controllers/MotivoController.php";
 require_once "controllers/dashboardController.php";
 
 // config
@@ -38,11 +39,64 @@ if($url == "motoristas") {
 }else if($url == "motoristas/delete") {
   $motoristaController = new MotoristaController();
   $motoristaController->delete();
-  header("Location: " . __URL__ . "/motoristas");
 }else if($url == "motoristas/update") {
   $motoristaController = new MotoristaController();
-  $motoristaController->update();
+  $motoristaController->update();  
 }
+
+
+// vehiculos routes 
+if($url == "vehiculos") {
+  $vehiculoController = new VehiculoController();
+  $vehiculoController->index();
+}else if($url == "vehiculos/add") {
+  $vehiculoController = new VehiculoController();
+  $vehiculoController->add();
+}else if($url == "vehiculos/modify") {
+  $vehiculoController = new VehiculoController();
+  $vehiculoController->modify();
+}else if($url == "vehiculos/get") {
+  $vehiculoController = new VehiculoController();
+  echo json_encode($vehiculoController->get());
+}else if($url == "vehiculos/insert") {
+  $vehiculoController = new VehiculoController();
+  $vehiculoController->post();
+}else if($url == "vehiculos/delete") {
+  $vehiculoController = new VehiculoController();
+  $vehiculoController->delete();
+}else if($url == "vehiculos/update") {
+  $vehiculoController = new VehiculoController();
+  $vehiculoController->update();
+}
+
+// motivos routes 
+if($url == "motivos") {
+  $motivoController = new MotivoController();
+  $motivoController->index();
+}else if($url == "motivos/add") {
+  $motivoController = new MotivoController();
+  $motivoController->add();
+}else if($url == "motivos/modify") {
+  $motivoController = new MotivoController();
+  $motivoController->modify();
+}else if($url == "motivos/get") {
+  $motivoController = new MotivoController();
+  echo json_encode($motivoController->get());
+}else if($url == "motivos/insert") {
+  $motivoController = new MotivoController();
+  $motivoController->post();
+}else if($url == "motivos/delete") {
+  $motivoController = new MotivoController();
+  $motivoController->delete();
+}else if($url == "motivos/update") {
+  $motivoController = new MotivoController();
+  $motivoController->update();
+}
+
+
+
+
+
 
 if($url == "principal") {
   echo $_POST["email"];

@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Motoristas" ?>
+    <?php $active = "Motivos" ?>
     <?php $options = [
       "Dashboard",
       "Control",
@@ -18,7 +18,7 @@
       "Análisis de inventario",
       "Motivos",
       "Motoristas",
-      "Vehiculos"
+      "Motivos"
     ] ?>
     <?php $url = [
       "#",
@@ -42,18 +42,14 @@
     </div>
 
     <div class="form__container">
-      <form class="form__content" action="<?php echo __URL__ . '/motoristas/insert'; ?>" method="POST">
+      <form class="form__content" action="<?php echo __URL__ . '/motivos/insert'; ?>" method="POST">
         <div class="form__controls">
-          <label class="form__label" for="">Dui</label>
-          <input class="form__control" name="dui" type="text" value="" placeholder="00000000-0"/>
+          <label class="form__label" for="">Placa</label>
+          <input class="form__control" name="id" type="text" value="0" placeholder="00000000-0"/> 
         </div>
         <div class="form__controls">
-          <label class="form__label" for="">Nombres</label>
-          <input class="form__control" name="nombres" type="text" value=""/>
-        </div>
-        <div class="form__controls">
-          <label class="form__label" for="">Apellidos</label>
-          <input class="form__control" name="apellidos" type="text" value=""/>
+          <label class="form__label" for="">Tipo</label>
+          <input class="form__control" name="motivo" type="text" value=""/>
         </div>
         <div class="form__divisor"></div>
         <div class="form__controls">

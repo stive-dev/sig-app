@@ -36,11 +36,13 @@ class MotoristaController extends Controller {
   public function update() {
     $motoristaModel = new MotoristaModel(array_values($_POST), "motorista");
     $motoristaModel->update();
+    header("Location: " . __URL__ . "/motoristas");
   }
   
   public function delete() {
     $motoristaModel = new MotoristaModel([$_GET["dui"]], "motorista");
     $motoristaModel->delete();
+    header("Location: " . __URL__ . "/motoristas");
   }
 }
 

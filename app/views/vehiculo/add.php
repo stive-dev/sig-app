@@ -42,18 +42,22 @@
     </div>
 
     <div class="form__container">
-      <form class="form__content" action="<?php echo __URL__ . '/motoristas/insert'; ?>" method="POST">
+      <form class="form__content" action="<?php echo __URL__ . '/vehiculos/insert'; ?>" method="POST">
         <div class="form__controls">
-          <label class="form__label" for="">Dui</label>
-          <input class="form__control" name="dui" type="text" value="" placeholder="00000000-0"/>
+          <label class="form__label" for="">Placa</label>
+          <input class="form__control" name="placa" type="text" value="" placeholder="00000000-0"/>
         </div>
         <div class="form__controls">
-          <label class="form__label" for="">Nombres</label>
-          <input class="form__control" name="nombres" type="text" value=""/>
+          <label class="form__label" for="">Tipo</label>
+          <input class="form__control" name="tipo" type="text" value=""/>
         </div>
         <div class="form__controls">
-          <label class="form__label" for="">Apellidos</label>
-          <input class="form__control" name="apellidos" type="text" value=""/>
+          <label class="form__label" for="">Activo</label>
+          <input class="form__control" name="activo" type="text" value=""/>
+        </div>
+        <div class="form__controls">
+          <label class="form__label" for="">Capacidad</label>
+          <input class="form__control" name="capacidad" type="text" value=""/>
         </div>
         <div class="form__divisor"></div>
         <div class="form__controls">
