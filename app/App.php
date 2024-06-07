@@ -6,6 +6,7 @@ require_once "controllers/MotoristaController.php";
 require_once "controllers/VehiculoController.php";
 require_once "controllers/MotivoController.php";
 require_once "controllers/MateriaPrimaController.php";
+require_once "controllers/ControlController.php";
 require_once "controllers/dashboardController.php";
 
 // config
@@ -126,6 +127,31 @@ if($url == "materias_primas") {
 }
 
 
+
+
+// controles routes 
+if($url == "controles") {
+  $controlController = new ControlController();
+  $controlController->index();
+}else if($url == "controles/add") {
+  $controlController = new ControlController();
+  $controlController->add();
+}else if($url == "controles/modify") {
+  $controlController = new ControlController();
+  $controlController->modify();
+}else if($url == "controles/get") {
+  $controlController = new ControlController();
+  echo json_encode($controlController->get());
+}else if($url == "controles/insert") {
+  $controlController = new ControlController();
+  $controlController->post();
+}else if($url == "controles/delete") {
+  $controlController = new ControlController();
+  $controlController->delete();
+}else if($url == "controles/update") {
+  $controlController = new ControlController();
+  $controlController->update();
+}
 
 
 

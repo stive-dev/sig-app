@@ -88,6 +88,12 @@ class Model extends PDO {
   public function define($fields_values) {
     $this->fields_values = $fields_values;
   }
+
+  public function raw($sql) {
+    $query = $this->connection->prepare($sql);
+    $query->execute();
+    return $query->fetchAll(self::FETCH_OBJ);
+  }
 }
 
 ?>
