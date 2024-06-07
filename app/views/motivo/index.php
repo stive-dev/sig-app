@@ -63,8 +63,8 @@
               </tr>
             <?php else: ?>
               <tr class="table__row table__row--1">
-                <td class="table__td"><?= $vehiculo->id ?></td>
-                <td class="table__td"><?= $vehiculo->motivo ?></td>
+                <td class="table__td"><?= $motivo->id ?></td>
+                <td class="table__td"><?= $motivo->motivo ?></td>
                 <td class="table__td table__td--options">
                   <a href="<?php echo __URL__ . '/motivos/modify?id=' . $motivo->id; ?>" class="table__option table__option--modify">Modificar</a>
                   <a href="<?php echo __URL__ . '/motivos/delete?id=' . $motivo->id; ?>" class="table__option table__option--delete">Borrar</a>

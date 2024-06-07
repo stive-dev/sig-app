@@ -44,11 +44,11 @@
     <div class="form__container">
       <form class="form__content" action="<?php echo __URL__ . '/motivos/insert'; ?>" method="POST">
         <div class="form__controls">
-          <label class="form__label" for="">Placa</label>
+          <label class="form__label" for="">Id</label>
           <input class="form__control" name="id" type="text" value="0" placeholder="00000000-0"/> 
         </div>
         <div class="form__controls">
-          <label class="form__label" for="">Tipo</label>
+          <label class="form__label" for="">Motivo</label>
           <input class="form__control" name="motivo" type="text" value=""/>
         </div>
         <div class="form__divisor"></div>
