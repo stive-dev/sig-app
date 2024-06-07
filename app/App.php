@@ -5,6 +5,7 @@ require_once "controllers/LoginController.php";
 require_once "controllers/MotoristaController.php";
 require_once "controllers/VehiculoController.php";
 require_once "controllers/MotivoController.php";
+require_once "controllers/MateriaPrimaController.php";
 require_once "controllers/dashboardController.php";
 
 // config
@@ -91,6 +92,37 @@ if($url == "motivos") {
 }else if($url == "motivos/update") {
   $motivoController = new MotivoController();
   $motivoController->update();
+}
+
+
+
+
+
+
+
+
+// materias primas routes 
+if($url == "materias_primas") {
+  $materiaPrimaController = new MateriaPrimaController();
+  $materiaPrimaController->index();
+}else if($url == "materias_primas/add") {
+  $materiaPrimaController = new MateriaPrimaController();
+  $materiaPrimaController->add();
+}else if($url == "materias_primas/modify") {
+  $materiaPrimaController = new MateriaPrimaController();
+  $materiaPrimaController->modify();
+}else if($url == "materias_primas/get") {
+  $materiaPrimaController = new MateriaPrimaController();
+  echo json_encode($materiaPrimaController->get());
+}else if($url == "materias_primas/insert") {
+  $materiaPrimaController = new MateriaPrimaController();
+  $materiaPrimaController->post();
+}else if($url == "materias_primas/delete") {
+  $materiaPrimaController = new MateriaPrimaController();
+  $materiaPrimaController->delete();
+}else if($url == "materias_primas/update") {
+  $materiaPrimaController = new MateriaPrimaController();
+  $materiaPrimaController->update();
 }
 
 
