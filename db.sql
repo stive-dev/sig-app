@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS materia_prima_analisis(
        id INT PRIMARY KEY,
        lote INT,
        id_materia_prima INT,
-       cantida_muestra INT,
+       cantidad_muestra INT,
        humedad DOUBLE,
        impureza DOUBLE,
        numero_pesa INT,

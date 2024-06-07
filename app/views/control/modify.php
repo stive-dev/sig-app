@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Controles" ?>
+    <?php $active = "Control" ?>
     <?php $options = [
       "Dashboard",
       "Control",
@@ -132,7 +132,7 @@
         
         <div class="form__divisor"></div>
         <div class="form__controls">
-          <input class="form__control form__control-button" name="" type="submit" value="Agregar"/>
+          <input class="form__control form__control-button" name="" type="submit" value="Guardar Cambios"/>
         </div>
       </form>
     </div>

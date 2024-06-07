@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Controles" ?>
+    <?php $active = "Control" ?>
     <?php $options = [
       "Dashboard",
       "Control",
