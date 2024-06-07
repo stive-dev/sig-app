@@ -42,10 +42,10 @@ CREATE TABLE IF NOT EXISTS control(
        numero_pesa INT,
        numero_orden INT,
        peso_salida INT,
-       id_motivo_salida INT,
+       motivo_salida VARCHAR(10),
        fecha_salida date,
        peso_entrada INT,
-       id_motivo_entrada INT,
+       motivo_entrada VARCHAR(10),
        fecha_entrada date
 );
 
@@ -60,8 +60,6 @@ CREATE TABLE IF NOT EXISTS materia_prima(
 ALTER TABLE control ADD CONSTRAINT `materia_prima_control_fk` FOREIGN KEY(id_materia_prima) REFERENCES materia_prima(id);
 ALTER TABLE control ADD CONSTRAINT `vehiculo_control_fk` FOREIGN KEY(placa_vehiculo) REFERENCES vehiculo(placa);
 ALTER TABLE control ADD CONSTRAINT `motorista_control_fk` FOREIGN KEY(dui_motorista) REFERENCES motorista(dui);
-ALTER TABLE control ADD CONSTRAINT `motivo_salida_control_fk` FOREIGN KEY(id_motivo_salida) REFERENCES motivo(id);
-ALTER TABLE control ADD CONSTRAINT `motivo_entrada_control_fk` FOREIGN KEY(id_motivo_entrada) REFERENCES motivo(id);
 
 -- MATERIA_PRIMA_ANALISIS TABLE
 CREATE TABLE IF NOT EXISTS materia_prima_analisis(
