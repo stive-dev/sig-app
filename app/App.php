@@ -8,7 +8,7 @@ require_once "controllers/MotivoController.php";
 require_once "controllers/MateriaPrimaController.php";
 require_once "controllers/ControlController.php";
 require_once "controllers/MateriaPrimaAnalisisController.php";
-require_once "controllers/dashboardController.php";
+require_once "controllers/DashboardController.php";
 
 // config
 $url = "";
@@ -196,10 +196,8 @@ if($url == "materias_primas_analisis") {
 }
 
 
-
-if($url == "principal") {
-  echo $_POST["email"];
-  $dashboardController = new dashboardController();
+if($url == "dashboard") {
+  $dashboardController = new DashboardController();
   $dashboardController->index();
 }
 
