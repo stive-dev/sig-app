@@ -49,7 +49,7 @@
                             <!-- TABS CONTENT LOGIN -->
                             <div id="login-tab-content" class="active">
 
-                                <form class="login-form" action="/sig-app/public_html/login" method="post">
+                                <form class="login-form" action="<?= __URL__ . '/login/auth' ?>" method="post">
                                     <p></p>
                                     <input type="text" class="input" id="email" name="email" autocomplete="off" placeholder="Correo electronico">
                                     <input type="password" class="input" id="contrasena" name="contrasena" autocomplete="off" placeholder="contraseña">
@@ -58,7 +58,7 @@
                                     <div class="help-action">
                                         <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">¿Olvidaste tu contraseña?</a></p>
                                     </div>
-                                    <input type="submit" class="button" name="iniciarSesion" value="iniciarSesion">
+                                    <input type="submit" class="button" name="" value="Iniciar Sesión">
                                 </form>
 
                             </div>
