@@ -42,6 +42,12 @@
       </div>
     </div>
 
+    <div class="header">
+      <?php if(isset($_GET["error"])): ?>
+        <div class="error">Ha ocurrido un error. Vuelve a intentarlo</div>
+      <?php endif ?>
+    </div>
+
     <div class="table__container">
       <table class="table__content">
         <thead class="table__head">
