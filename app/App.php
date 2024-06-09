@@ -27,7 +27,7 @@ if($url == "login") {
   if($sessionController->auth()) {
     session_start();
     $_SESSION["email"] = $_POST["email"];
-    //header("Location: " . __URL__ . "/dashboard");
+    header("Location: " . __URL__ . "/dashboard");
   }else {
     echo "error";
   }

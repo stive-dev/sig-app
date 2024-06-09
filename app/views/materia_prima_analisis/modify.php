@@ -113,7 +113,16 @@
 
         <div class="form__controls">
           <label class="form__label" for="">Estado</label>
-          <input class="form__control" name="estado" type="text" value="<?= $materiaPrimaAnalisis->estado ?>" placeholder="00000000-0"/> 
+          <!-- <input class="form__control" name="estado" type="text" value="<?= $materiaPrimaAnalisis->estado ?>" placeholder="00000000-0"/> -->
+          <select class="form__control" id="" name="estado">
+            <?php if($materiaPrimaAnalisis->estado == "Aprobado"): ?>
+              <option value="Aprobado" selected>Aprobado</option>
+              <option value="No Aprobado">No Aprobado</option>
+            <?php else: ?>
+              <option value="Aprobado">Aprobado</option>
+              <option value="No Aprobado" selected>No Aprobado</option>
+            <?php endif ?>
+          </select>
         </div>
         
 

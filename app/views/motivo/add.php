@@ -38,7 +38,7 @@
         <h2 class="title__2">Agregar Motorista al Sistema</h2>
       </div>
       <div class="header__content">
-        <a href="<?php echo __URL__ . '/motoristas'; ?>" class="navbar__option navbar__option--active">Regresar</a>
+        <a href="<?php echo __URL__ . '/motivos'; ?>" class="navbar__option navbar__option--active">Regresar</a>
       </div>
     </div>
 

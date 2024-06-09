@@ -13,8 +13,8 @@ class dashboardController extends Controller
     $motoristaModel = new MotoristaModel([], "motorista");
     $materiaPrimaModel = new MateriaPrimaModel([], "materia_prima");
     $materiaPrimaAnalisisModel = new MateriaPrimaAnalisisModel([], "materia_prima_analisis");
-    $vehiculosFuera = $materiaPrimaAnalisisModel->raw("SELECT * FROM control WHERE motivo_entrada='-';");
-    $vehiculosDentro = $materiaPrimaAnalisisModel->raw("SELECT * FROM control WHERE motivo_entrada<>'-';");
+    $vehiculosFuera = $materiaPrimaAnalisisModel->raw("SELECT * FROM control WHERE motivo_entrada='Sin Asignar';");
+    $vehiculosDentro = $materiaPrimaAnalisisModel->raw("SELECT * FROM control WHERE motivo_entrada<>'Sin Asignar';");
 
     $vehiculos = $vehiculoModel->select();
     $motoristas = $motoristaModel->select();

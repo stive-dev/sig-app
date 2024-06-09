@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Document</title>
     <?php require_once __ROOT_PATH__ . "/app/views/components/headers.php" ?>
+    <link href="<?php echo __URL__ . '/css/form/style.css'; ?>" rel="stylesheet"/>
   </head>
   <body>
 
@@ -33,14 +34,38 @@
     <!-- TEMPLATE CODE -->
 
     
-    <div class="header">
+    <form class="header">
       <div class="header__content">
         <h2 class="title__2">Controles en el Sistema <?= count($controles) ?></h2>
       </div>
       <div class="header__content">
+        <h3 class="title__2">Filtro</h3>
+      </div>
+      <div class="header__content">
+        <select class="form__control" id="" name="filtro">
+          <?php if($_GET["filtro"] == ""): ?>
+            <option value="" selected> - </option>
+            <option value="dentro">Dentro</option>
+            <option value="fuera">Fuera</option>
+          <?php elseif($_GET["filtro"] == "dentro"): ?>
+            <option value="" > - </option>
+            <option value="dentro" selected>Dentro</option>
+            <option value="fuera">Fuera</option>
+          <?php elseif($_GET["filtro"] == "fuera"): ?>
+            <option value="" > - </option>
+            <option value="dentro" >Dentro</option>
+            <option value="fuera" selected>Fuera</option>
+          <?php endif ?>
+          
+        </select>
+      </div>
+      <div class="header__content">
+        <input class="navbar__option navbar__option--active" style="border: 0px; height: 42px; font-size: 16px" name="" type="submit" value="Filtrar"/>
+      </div>
+      <div class="header__content">
         <a href="<?php echo __URL__ . '/controles/add'; ?>" class="navbar__option navbar__option--active">Agregar Nuevo</a>
       </div>
-    </div>
+    </form>
 
     <div class="table__container">
       <table class="table__content">

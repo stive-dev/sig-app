@@ -54,7 +54,27 @@
         </div>
         <div class="form__controls">
           <label class="form__label" for="">Activo</label>
-          <input class="form__control" name="activo" type="text" value="<?= $vehiculo->activo ?>"/>
+          <!-- <input class="form__control" name="activo" type="text" value="<?= $vehiculo->activo ?>"/> -->
+          <?php if($vehiculo->activo): ?>
+            <div>
+              <input name="activo" type="radio" value="1" checked/>
+              <label class="form__label" for="">Si</label>
+            </div>
+            <div>
+              <input class="" name="activo" type="radio" value="0"/>
+              <label class="form__label" for="">No</label>
+            </div>
+          <?php else: ?>
+            <div>
+              <input name="activo" type="radio" value="1"/>
+              <label class="form__label" for="">Si</label>
+            </div>
+            <div>
+              <input class="" name="activo" type="radio" value="0" checked/>
+              <label class="form__label" for="">No</label>
+            </div>
+          <?php endif ?>
+          
         </div>
         <div class="form__controls">
           <label class="form__label" for="">Capacidad</label>
