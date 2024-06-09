@@ -6,7 +6,6 @@
     <?php require_once __ROOT_PATH__ . "/app/views/components/headers.php" ?>
   </head>
   <body>
-
     
     <!-- TEMPLATE CODE -->
     <?php $active = "Dashboard" ?>

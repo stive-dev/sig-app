@@ -110,3 +110,7 @@ INSERT INTO motivo(motivo) VALUES
 ('Venta'),
 ('Visita'),
 ('Sin Asignar');
+
+INSERT INTO usuario(dui, nombres, apellido, email, contrasena, rol) VALUES
+('12345678-9', 'Administrador', 'Administrador', 'admin@gmail.com', '$2y$10$ksT57Bwjg8PG2AVhlYvz9uONXJ3StQ1cCx9uEh8G7vgW1X.Kyf.KO
+', 'admin');
