@@ -106,7 +106,16 @@
 
         <div class="form__controls">
           <label class="form__label" for="">Motivo Salida</label>
-          <input class="form__control" name="motivo_salida" type="text" value="<?= $control->motivo_salida ?>" placeholder="00000000-0"/> 
+          <!-- <input class="form__control" name="motivo_salida" type="text" value="<?= $control->motivo_salida ?>" placeholder="00000000-0"/> -->
+          <select class="form__control" id="" name="motivo_salida">
+            <?php foreach($motivos as $motivo): ?>
+              <?php if($control->motivo_salida == $motivo->motivo_salida): ?>
+                <option value="<?= $motivo->motivo ?>" selected><?= $motivo->motivo ?></option>
+              <?php else: ?>
+                <option value="<?= $motivo->motivo ?>"><?= $motivo->motivo ?></option>
+              <?php endif ?>
+            <?php endforeach ?>
+          </select>
         </div>
 
         <div class="form__controls">
@@ -121,7 +130,16 @@
 
         <div class="form__controls">
           <label class="form__label" for="">Motivo Entrada</label>
-          <input class="form__control" name="motivo_entrada" type="text" value="<?= $control->motivo_entrada?>" placeholder="00000000-0"/> 
+          <!-- <input class="form__control" name="motivo_entrada" type="text" value="<?= $control->motivo_entrada?>" placeholder="00000000-0"/> -->
+          <select class="form__control" id="" name="motivo_entrada">
+            <?php foreach($motivos as $motivo): ?>
+              <?php if($control->motivo_entrada == $motivo->motivo_entrada): ?>
+                <option value="<?= $motivo->motivo ?>" selected><?= $motivo->motivo ?></option>
+              <?php else: ?>
+                <option value="<?= $motivo->motivo ?>"><?= $motivo->motivo ?></option>
+              <?php endif ?>
+            <?php endforeach ?>
+          </select>
         </div>
 
         <div class="form__controls">

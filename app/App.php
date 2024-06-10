@@ -27,7 +27,7 @@ if($url == "login") {
   if($sessionController->auth()) {
     session_start();
     $_SESSION["email"] = $_POST["email"];
-    //header("Location: " . __URL__ . "/dashboard");
+    header("Location: " . __URL__ . "/dashboard");
   }else {
     echo "error";
   }
@@ -69,137 +69,74 @@ if($url == "motoristas") {
 }
 
 // vehiculos routes 
-if($url == "vehiculos") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  $vehiculoController->index();
-}else if($url == "vehiculos/add") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  $vehiculoController->add();
-}else if($url == "vehiculos/modify") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  $vehiculoController->modify();
-}else if($url == "vehiculos/get") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  echo json_encode($vehiculoController->get());
-}else if($url == "vehiculos/insert") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  $vehiculoController->post();
-}else if($url == "vehiculos/delete") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  $vehiculoController->delete();
-}else if($url == "vehiculos/update") {
-  SessionController::verify();
-  $vehiculoController = new VehiculoController();
-  $vehiculoController->update();
+try {
+  if($url == "vehiculos") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    $vehiculoController->index();
+  }else if($url == "vehiculos/add") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    $vehiculoController->add();
+  }else if($url == "vehiculos/modify") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    $vehiculoController->modify();
+  }else if($url == "vehiculos/get") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    echo json_encode($vehiculoController->get());
+  }else if($url == "vehiculos/insert") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    $vehiculoController->post();
+  }else if($url == "vehiculos/delete") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    $vehiculoController->delete();
+  }else if($url == "vehiculos/update") {
+    SessionController::verify();
+    $vehiculoController = new VehiculoController();
+    $vehiculoController->update();
+  }
+} catch(Exception $error) {
+  header("Location: " . __URL__ . "/vehiculos?error=" . 1);
 }
 
-// motivos routes 
-if($url == "motivos") {
-  SessionController::verify();
-  $motivoController = new MotivoController();
-  $motivoController->index();
-}else if($url == "motivos/add") {
-  SessionController::verify();
-  $motivoController = new MotivoController();
-  $motivoController->add();
-}else if($url == "motivos/modify") {
-  SessionController::verify();
-  $motivoController = new MotivoController();
-  $motivoController->modify();
-}else if($url == "motivos/get") {
-  $motivoController = new MotivoController();
-  SessionController::verify();
-  echo json_encode($motivoController->get());
-}else if($url == "motivos/insert") {
-  SessionController::verify();
-  $motivoController = new MotivoController();
-  $motivoController->post();
-}else if($url == "motivos/delete") {
-  SessionController::verify();
-  $motivoController = new MotivoController();
-  $motivoController->delete();
-}else if($url == "motivos/update") {
-  SessionController::verify();
-  $motivoController = new MotivoController();
-  $motivoController->update();
-}
+// motivos routes
+try {
+  if($url == "motivos") {
+    SessionController::verify();
+    $motivoController = new MotivoController();
+    $motivoController->index();
+  }else if($url == "motivos/add") {
+    SessionController::verify();
+    $motivoController = new MotivoController();
+    $motivoController->add();
+  }else if($url == "motivos/modify") {
+    SessionController::verify();
+    $motivoController = new MotivoController();
+    $motivoController->modify();
+  }else if($url == "motivos/get") {
+    $motivoController = new MotivoController();
+    SessionController::verify();
+    echo json_encode($motivoController->get());
+  }else if($url == "motivos/insert") {
+    SessionController::verify();
+    $motivoController = new MotivoController();
+    $motivoController->post();
+  }else if($url == "motivos/delete") {
+    SessionController::verify();
+    $motivoController = new MotivoController();
+    $motivoController->delete();
+  }else if($url == "motivos/update") {
+    SessionController::verify();
+    $motivoController = new MotivoController();
+    $motivoController->update();
+  }
 
-
-
-
-
-
-
-
-// materias primas routes 
-if($url == "materias_primas") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  $materiaPrimaController->index();
-}else if($url == "materias_primas/add") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  $materiaPrimaController->add();
-}else if($url == "materias_primas/modify") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  $materiaPrimaController->modify();
-}else if($url == "materias_primas/get") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  echo json_encode($materiaPrimaController->get());
-}else if($url == "materias_primas/insert") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  $materiaPrimaController->post();
-}else if($url == "materias_primas/delete") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  $materiaPrimaController->delete();
-}else if($url == "materias_primas/update") {
-  SessionController::verify();
-  $materiaPrimaController = new MateriaPrimaController();
-  $materiaPrimaController->update();
-}
-
-
-
-
-// controles routes 
-if($url == "controles") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  $controlController->index();
-}else if($url == "controles/add") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  $controlController->add();
-}else if($url == "controles/modify") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  $controlController->modify();
-}else if($url == "controles/get") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  echo json_encode($controlController->get());
-}else if($url == "controles/insert") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  $controlController->post();
-}else if($url == "controles/delete") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  $controlController->delete();
-}else if($url == "controles/update") {
-  SessionController::verify();
-  $controlController = new ControlController();
-  $controlController->update();
+} catch(Exception $error) {
+  header("Location: " . __URL__ . "/motivos?error=" . 1);
 }
 
 
@@ -209,45 +146,120 @@ if($url == "controles") {
 
 
 
-// materias primas routes 
-if($url == "materias_primas_analisis") {
-  SessionController::verify();
-  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-  $materiaPrimaAnalisisController->index();
-}else if($url == "materias_primas_analisis/add") {
-  SessionController::verify();
-  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-  $materiaPrimaAnalisisController->add();
-}else if($url == "materias_primas_analisis/modify") {
-  SessionController::verify();
-  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-  $materiaPrimaAnalisisController->modify();
-}else if($url == "materias_primas_analisis/get") {
-  SessionController::verify();
-  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-  echo json_encode($materiaPrimaAnalisisController->get());
-}else if($url == "materias_primas_analisis/insert") {
-  try {
+// materias primas routes
+try {
+  if($url == "materias_primas") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    $materiaPrimaController->index();
+  }else if($url == "materias_primas/add") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    $materiaPrimaController->add();
+  }else if($url == "materias_primas/modify") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    $materiaPrimaController->modify();
+  }else if($url == "materias_primas/get") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    echo json_encode($materiaPrimaController->get());
+  }else if($url == "materias_primas/insert") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    $materiaPrimaController->post();
+  }else if($url == "materias_primas/delete") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    $materiaPrimaController->delete();
+  }else if($url == "materias_primas/update") {
+    SessionController::verify();
+    $materiaPrimaController = new MateriaPrimaController();
+    $materiaPrimaController->update();
+  }
+
+} catch(Exception $error) {
+  header("Location: " . __URL__ . "/materias_primas?error=" . 1);
+}
+
+
+
+
+// controles routes
+try {
+  if($url == "controles") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    $controlController->index();
+  }else if($url == "controles/add") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    $controlController->add();
+  }else if($url == "controles/modify") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    $controlController->modify();
+  }else if($url == "controles/get") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    echo json_encode($controlController->get());
+  }else if($url == "controles/insert") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    $controlController->post();
+  }else if($url == "controles/delete") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    $controlController->delete();
+  }else if($url == "controles/update") {
+    SessionController::verify();
+    $controlController = new ControlController();
+    $controlController->update();
+  }
+} catch(Exception $error) {
+  header("Location: " . __URL__ . "/controles?error=" . 1);
+}
+
+
+
+
+
+
+
+
+// materias primas routes
+try {
+  if($url == "materias_primas_analisis") {
     SessionController::verify();
     $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-    $materiaPrimaAnalisisController->post();
-  }catch(Exception $err) {
-    echo $err->getMessage();
-  }
-  
-}else if($url == "materias_primas_analisis/delete") {
-  SessionController::verify();
-  $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-  $materiaPrimaAnalisisController->delete();
-}else if($url == "materias_primas_analisis/update") {
-  try {
+    $materiaPrimaAnalisisController->index();
+  }else if($url == "materias_primas_analisis/add") {
     SessionController::verify();
     $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-    $materiaPrimaAnalisisController->update();
-  }catch(Exception $err) {
-    echo $err->getMessage();
+    $materiaPrimaAnalisisController->add();
+  }else if($url == "materias_primas_analisis/modify") {
+    SessionController::verify();
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    $materiaPrimaAnalisisController->modify();
+  }else if($url == "materias_primas_analisis/get") {
+    SessionController::verify();
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    echo json_encode($materiaPrimaAnalisisController->get());
+  }else if($url == "materias_primas_analisis/insert") {
+      SessionController::verify();
+      $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+      $materiaPrimaAnalisisController->post();
+  }else if($url == "materias_primas_analisis/delete") {
+    SessionController::verify();
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    $materiaPrimaAnalisisController->delete();
+  }else if($url == "materias_primas_analisis/update") {
+      SessionController::verify();
+      $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+      $materiaPrimaAnalisisController->update();
   }
-  
+} catch(Exception $error) {
+  header("Location: " . __URL__ . "/materias_primas_analisis?error=" . 1);
 }
 
 

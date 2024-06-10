@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Motoristas" ?>
+    <?php $active = "Motivos" ?>
     <?php $options = [
       "Dashboard",
       "Control",

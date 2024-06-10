@@ -46,7 +46,7 @@
       <form class="form__content" action="<?php echo __URL__ . '/vehiculos/insert'; ?>" method="POST">
         <div class="form__controls">
           <label class="form__label" for="">Placa</label>
-          <input class="form__control" name="placa" type="text" value="" placeholder="00000000-0"/>
+          <input class="form__control" name="placa" type="text" value="" placeholder="00000"/>
         </div>
         <div class="form__controls">
           <label class="form__label" for="">Tipo</label>
@@ -54,11 +54,19 @@
         </div>
         <div class="form__controls">
           <label class="form__label" for="">Activo</label>
-          <input class="form__control" name="activo" type="text" value=""/>
+          <!-- <input class="form__control" name="activo" type="checkbox" value=""/> -->
+          <div>
+            <input name="activo" type="radio" value="1"/>
+            <label class="form__label" for="">Si</label>
+          </div>
+          <div>
+            <input class="" name="activo" type="radio" value="0"/>
+            <label class="form__label" for="">No</label>
+          </div>
         </div>
         <div class="form__controls">
           <label class="form__label" for="">Capacidad</label>
-          <input class="form__control" name="capacidad" type="text" value=""/>
+          <input class="form__control" name="capacidad" type="text" value="" placeholder="0.00"/>
         </div>
         <div class="form__divisor"></div>
         <div class="form__controls">

@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS usuario(
 -- VEHICULO TABLE
 CREATE TABLE IF NOT EXISTS vehiculo(
        placa VARCHAR(10) PRIMARY KEY,
-       tipo VARCHAR(10),
+       tipo VARCHAR(20),
        activo BOOLEAN,
        capacidad DOUBLE
 );
@@ -42,10 +42,10 @@ CREATE TABLE IF NOT EXISTS control(
        numero_pesa INT,
        numero_orden INT,
        peso_salida INT,
-       motivo_salida VARCHAR(10),
+       motivo_salida VARCHAR(20),
        fecha_salida date,
        peso_entrada INT,
-       motivo_entrada VARCHAR(10),
+       motivo_entrada VARCHAR(20),
        fecha_entrada date
 );
 
@@ -104,3 +104,13 @@ INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humed
 INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('154','3','1','0.10','0.02','65438','0.93','0.03','0.03','0,01','Aprovado');
 INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('155','3','1','0.10','0.05','65439','0.99','0.01','0.00','0,00','Aprovado');
 INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('156','5','1','0.10','0.06','65440','0.90','0.05','0.04','0,01','Aprovado');
+
+INSERT INTO motivo(motivo) VALUES
+('Compra'),
+('Venta'),
+('Visita'),
+('Sin Asignar');
+
+INSERT INTO usuario(dui, nombres, apellido, email, contrasena, rol) VALUES
+('12345678-9', 'Administrador', 'Administrador', 'admin@gmail.com', '$2y$10$ksT57Bwjg8PG2AVhlYvz9uONXJ3StQ1cCx9uEh8G7vgW1X.Kyf.KO
+', 'admin');

@@ -79,22 +79,27 @@
 
         <div class="form__controls">
           <label class="form__label" for="">Número Pesa</label>
-          <input class="form__control" name="numero_pesa" type="text" value="0" placeholder="00000000-0"/> 
+          <input class="form__control" name="numero_pesa" type="text" value="0" placeholder=""/> 
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Número Orden</label>
-          <input class="form__control" name="numero_orden" type="text" value="" placeholder="00000000-0"/> 
+          <input class="form__control" name="numero_orden" type="text" value="" placeholder=""/> 
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Peso Salida</label>
-          <input class="form__control" name="peso_salida" type="text" value="" placeholder="00000000-0"/> 
+          <input class="form__control" name="peso_salida" type="text" value="" placeholder="0.00"/> 
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Motivo Salida</label>
-          <input class="form__control" name="motivo_salida" type="text" value="" placeholder="00000000-0"/> 
+          <!-- <input class="form__control" name="motivo_salida" type="text" value="" placeholder="00000000-0"/> -->
+          <select class="form__control" id="" name="motivo_salida">
+            <?php foreach($motivos as $motivo): ?>
+              <option value="<?= $motivo->motivo ?>"><?= $motivo->motivo ?></option>
+            <?php endforeach ?>
+          </select>
         </div>
 
         <div class="form__controls">
@@ -104,12 +109,17 @@
 
         <div class="form__controls">
           <label class="form__label" for="">Peso Entrada</label>
-          <input class="form__control" name="peso_entrada" type="text" value="" placeholder="00000000-0"/> 
+          <input class="form__control" name="peso_entrada" type="text" value="" placeholder="0.00"/> 
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Motivo Entrada</label>
-          <input class="form__control" name="motivo_entrada" type="text" value="" placeholder="00000000-0"/> 
+          <!-- <input class="form__control" name="motivo_entrada" type="text" value="" placeholder="00000000-0"/> -->
+          <select class="form__control" id="" name="motivo_entrada">
+            <?php foreach($motivos as $motivo): ?>
+              <option value="<?= $motivo->motivo ?>"><?= $motivo->motivo ?></option>
+            <?php endforeach ?>
+          </select>
         </div>
 
         <div class="form__controls">
