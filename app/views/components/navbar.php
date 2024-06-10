@@ -21,3 +21,4 @@
     <a href="<?= __URL__ ?>/login/out" class="navbar__option navbar__option--session">Cerrar Sesión</a>
   </div>
 </div>
+
