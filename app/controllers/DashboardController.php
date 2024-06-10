@@ -20,6 +20,9 @@ class dashboardController extends Controller
     $motoristas = $motoristaModel->select();
     $materiasPrimas = $materiaPrimaModel->select();
     $materiasPrimasAnalisis = $materiaPrimaAnalisisModel->select();
+
+    $motivosConteo = $materiaPrimaModel->raw("SELECT control.motivo_salida as motivo_salida, COUNT(control.motivo_salida) AS motivo_count FROM control GROUP BY control.motivo_salida;");
+
     require_once __ROOT_PATH__ . "/app/views/dashboard/index.php";
   }
 }

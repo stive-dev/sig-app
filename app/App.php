@@ -10,6 +10,8 @@ require_once "controllers/ControlController.php";
 require_once "controllers/MateriaPrimaAnalisisController.php";
 require_once "controllers/DashboardController.php";
 require_once "controllers/SessionController.php";
+require_once "models/MateriaPrimaModel.php";
+use Dompdf\Dompdf;
 
 // config
 $url = "";
@@ -246,17 +248,17 @@ try {
     $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
     echo json_encode($materiaPrimaAnalisisController->get());
   }else if($url == "materias_primas_analisis/insert") {
-      SessionController::verify();
-      $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-      $materiaPrimaAnalisisController->post();
+    SessionController::verify();
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    $materiaPrimaAnalisisController->post();
   }else if($url == "materias_primas_analisis/delete") {
     SessionController::verify();
     $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
     $materiaPrimaAnalisisController->delete();
   }else if($url == "materias_primas_analisis/update") {
-      SessionController::verify();
-      $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
-      $materiaPrimaAnalisisController->update();
+    SessionController::verify();
+    $materiaPrimaAnalisisController = new MateriaPrimaAnalisisController();
+    $materiaPrimaAnalisisController->update();
   }
 } catch(Exception $error) {
   header("Location: " . __URL__ . "/materias_primas_analisis?error=" . 1);
@@ -268,5 +270,111 @@ if($url == "dashboard") {
   $dashboardController = new DashboardController();
   $dashboardController->index();
 }
+
+if($url == "reporte_peso") {
+  $fecha = $_GET["fecha"];
+  $materiaPrimaModel = new MateriaPrimaModel([] , "materia_prima");
+
+  $resultado = $materiaPrimaModel->raw("SELECT 
+control.fecha_entrada as fecha_entrada, 
+materia_prima.tipo as tipo, 
+materia_prima_analisis.numero_pesa as pesa
+FROM control 
+INNER JOIN materia_prima ON control.id_materia_prima=materia_prima.id
+INNER JOIN materia_prima_analisis ON control.id_materia_prima=materia_prima_analisis.id_materia_prima
+WHERE control.fecha_entrada='$fecha';");
+
+  $resultado_existencia = $materiaPrimaModel->raw("SELECT 
+control.fecha_entrada as fecha_entrada, 
+materia_prima.tipo as tipo,
+COUNT(materia_prima.tipo) as tipo_conteo
+FROM control 
+INNER JOIN materia_prima ON control.id_materia_prima=materia_prima.id
+WHERE control.fecha_entrada='$fecha' ORDER BY COUNT(materia_prima.tipo) DESC LIMIT 1;");
+
+  $resultado_menos_existencia = $materiaPrimaModel->raw("SELECT 
+control.fecha_entrada as fecha_entrada, 
+materia_prima.tipo as tipo,
+COUNT(materia_prima.tipo) as tipo_conteo
+FROM control 
+INNER JOIN materia_prima ON control.id_materia_prima=materia_prima.id
+WHERE control.fecha_entrada='$fecha' ORDER BY COUNT(materia_prima.tipo) ASC LIMIT 1;");
+
+  //var_dump($resultado_existencia[0]);
+  require_once __ROOT_PATH__ . "/app/views/reportes/reporte_peso.php";
+  
+  $dompdf = new Dompdf();
+  $dompdf->loadHtml($file);
+  $dompdf->render();
+  $dompdf->stream();
+}
+
+
+
+
+
+
+
+if($url == "reporte_control") {
+  $fecha = $_GET["fecha"];
+  $materiaPrimaModel = new MateriaPrimaModel([] , "materia_prima");
+
+  $resultado = $materiaPrimaModel->raw("SELECT 
+control.fecha_salida as fecha_entrada, 
+vehiculo.tipo as tipo,
+CONCAT_WS(' ', motorista.nombres, motorista.apellidos) as nombre,
+control.motivo_salida as motivo_salida
+FROM control 
+INNER JOIN vehiculo ON control.placa_vehiculo=vehiculo.placa
+INNER JOIN motorista ON control.dui_motorista=motorista.dui
+WHERE control.fecha_salida='$fecha';");
+
+  $resultado_existencia = $materiaPrimaModel->raw("SELECT motivo_salida, count(motivo_salida) AS conteo FROM control  WHERE control.fecha_entrada='$fecha' GROUP BY motivo_salida;");
+
+  $resultado_menos_existencia = $materiaPrimaModel->raw("SELECT 
+control.fecha_entrada as fecha_entrada, 
+materia_prima.tipo as tipo,
+COUNT(materia_prima.tipo) as tipo_conteo
+FROM control 
+INNER JOIN materia_prima ON control.id_materia_prima=materia_prima.id
+WHERE control.fecha_entrada='$fecha' ORDER BY COUNT(materia_prima.tipo) ASC LIMIT 1;");
+
+  //var_dump($resultado_existencia[0]);
+  require_once __ROOT_PATH__ . "/app/views/reportes/reporte_control.php";
+  
+  $dompdf = new Dompdf();
+  $dompdf->loadHtml($file);
+  $dompdf->render();
+  $dompdf->stream();
+}
+
+
+
+
+if($url == "reporte_calidad") {
+  $estado = $_GET["estado"];
+  $materiaPrimaModel = new MateriaPrimaModel([] , "materia_prima");
+
+  $resultado = $materiaPrimaModel->raw("SELECT materia_prima.tipo as materia, materia_prima_analisis.cantidad_muestra as cantidad, materia_prima_analisis.impureza as impureza, materia_prima_analisis.numero_pesa as pesa, materia_prima_analisis.estado AS estado FROM materia_prima_analisis INNER JOIN materia_prima ON materia_prima_analisis.id_materia_prima=materia_prima.id WHERE materia_prima_analisis.estado='$estado';");
+
+  $resultado_existencia = $materiaPrimaModel->raw("SELECT ROUND(AVG(materia_prima_analisis.impureza),5) as prom_1, ROUND(VARIANCE(materia_prima_analisis.impureza),5) AS prom_2 FROM materia_prima_analisis WHERE estado='$estado';");
+
+  $resultado_menos_existencia = $materiaPrimaModel->raw("SELECT 
+control.fecha_entrada as fecha_entrada, 
+materia_prima.tipo as tipo,
+COUNT(materia_prima.tipo) as tipo_conteo
+FROM control 
+INNER JOIN materia_prima ON control.id_materia_prima=materia_prima.id
+WHERE control.fecha_entrada='2024-06-10' ORDER BY COUNT(materia_prima.tipo) ASC LIMIT 1;");
+
+  //var_dump($resultado_existencia[0]);
+  require_once __ROOT_PATH__ . "/app/views/reportes/reporte_calidad.php";
+  
+  $dompdf = new Dompdf();
+  $dompdf->loadHtml($file);
+  $dompdf->render();
+  $dompdf->stream();
+}
+
 
 ?>

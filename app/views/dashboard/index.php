@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Document</title>
     <?php require_once __ROOT_PATH__ . "/app/views/components/headers.php" ?>
+    <link href="<?php echo __URL__ . '/css/form/style.css'; ?>" rel="stylesheet"/>
   </head>
   <body>
     
@@ -38,18 +39,56 @@
       </div>
     </div>
 
+    
+    <div class="header">
+      <form class="header__content" action="<?= __URL__ ?>/reporte_calidad" method="GET">
+        <h3 class="title__2">Generar Reporte de Calidad</h3>
+        <div style="margin-right: 30px;">
+          <select class="form__control" id="" name="estado">
+          <option value="Aprobado" selected>Aprobado</option>
+          <option value="No Aprobado">No Aprobado</option>
+          </select>
+        </div>
+        <div class="form__controls">
+          <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
+        </div>
+      </form>
+    </div>
+
+    <div class="header">
+      <form class="header__content" action="<?= __URL__ ?>/reporte_peso" method="GET">
+        <h3 class="title__2">Generar Reporte de Peso de Materia Prima</h3>
+        <div style="margin-right: 30px;">
+          <input class="form__control" id="" name="fecha" type="date">
+        </div>
+        <div class="form__controls">
+          <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
+        </div>
+      </form>
+    </div>
+
+    <div class="header">
+      <form class="header__content" action="<?= __URL__ ?>/reporte_control" method="GET">
+        <h3 class="title__2">Generar Reporte de Control de Salidas</h3>
+        <div style="margin-right: 30px;">
+          <input class="form__control" id="" name="fecha" type="date">
+        </div>
+        <div class="form__controls">
+          <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
+        </div>
+      </form>
+    </div>
+
     <div class="table__container">
       <div class="grid">
         <div class="grid-row">
           <div class="grid-column-2">
             <div class="card">
               <div class="card__title">
-                <h2>Vehiculos Fuera/Dentro</h2>
+                <h2>Motivos de Salida</h2>
               </div>
               <div class="card__content" style="display: flex; justify-content: center;">
-                <div style="width: fit-content;">
-                  <canvas id="myChart"></canvas>
-                </div>
+                <canvas id="myChart"></canvas>
               </div>
               <div class="card__foot"></div>
             </div>
@@ -119,14 +158,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+     const motivos = <?= json_encode($motivosConteo) ?>;
+     console.log(motivos)
+     let motivo_titulo = []
+     let motivo_value = []
+     motivos.forEach(motivo => {
+       motivo_titulo.push(motivo.motivo_salida)
+       motivo_value.push(motivo.motivo_count)
+     })
+
      const ctx = document.getElementById('myChart');
      new Chart(ctx, {
-       type: 'pie',
+       type: 'bar',
        data: {
-         labels: ['Vehiculos Fuera', 'Vehiculos Dentro'],
+         labels: motivo_titulo,
          datasets: [{
-           label: 'Control de Ingresos/Egresos',
-           data: [<?= count($vehiculosDentro) ?>, <?= count($vehiculosFuera)?>],
+           label: 'Recuento de Motivos de Salida',
+           data: motivo_value,
            borderWidth: 1
          }]
        },
