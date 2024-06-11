@@ -32,130 +32,128 @@
     <?php require_once __ROOT_PATH__ . "/app/views/components/navbar.php" ?>
     <!-- TEMPLATE CODE -->
 
-    
-    <div class="header">
-      <div class="header__content">
-        <h2 class="title__2">Dashboard</h2>
+    <div style="padding: 20px; padding-bottom: 0px; color: #ffffff;">
+      <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px;">
+          <h2>DASHBOARD</h2>
+        </div>
       </div>
     </div>
 
-    
-    <div class="header">
-      <form class="header__content" action="<?= __URL__ ?>/reporte_calidad" method="GET">
-        <h3 class="title__2">Generar Reporte de Calidad</h3>
-        <div style="margin-right: 30px;">
-          <select class="form__control" id="" name="estado">
-          <option value="Aprobado" selected>Aprobado</option>
-          <option value="No Aprobado">No Aprobado</option>
-          </select>
-        </div>
-        <div class="form__controls">
-          <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
-        </div>
-      </form>
-    </div>
-
-    <div class="header">
-      <form class="header__content" action="<?= __URL__ ?>/reporte_peso" method="GET">
-        <h3 class="title__2">Generar Reporte de Peso de Materia Prima</h3>
-        <div style="margin-right: 30px;">
-          <input class="form__control" id="" name="fecha" type="date">
-        </div>
-        <div class="form__controls">
-          <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
-        </div>
-      </form>
-    </div>
-
-    <div class="header">
-      <form class="header__content" action="<?= __URL__ ?>/reporte_control" method="GET">
-        <h3 class="title__2">Generar Reporte de Control de Salidas</h3>
-        <div style="margin-right: 30px;">
-          <input class="form__control" id="" name="fecha" type="date">
-        </div>
-        <div class="form__controls">
-          <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
-        </div>
-      </form>
-    </div>
-
-    <div class="table__container">
-      <div class="grid">
-        <div class="grid-row">
-          <div class="grid-column-2">
-            <div class="card">
-              <div class="card__title">
-                <h2>Motivos de Salida</h2>
-              </div>
-              <div class="card__content" style="display: flex; justify-content: center;">
-                <canvas id="myChart"></canvas>
-              </div>
-              <div class="card__foot"></div>
+    <div style="padding: 20px;">
+      <div style="display: flex; gap: 20px; width: 100%;">
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px;">
+          <img alt="" src="<?= __URL__ ?>/icons/truck.svg" style="padding: 15px; background-color: #3440eb; border-radius: 100px;" />
+          <div style="display: flex; flex-direction: column; color:#ffffff;">
+            <div style="display: flex; gap: 20px; align-items: center;">
+              <span style="font-size: 30px; font-weight: bold;"><?= count($vehiculos)?></span>
+              <span>Vehiculos</span>
+            </div>
+            <div style="color: #9CA3AF">
+              Vehiculos registrados
             </div>
           </div>
-          <div class="grid-column-2">
-            <div class="grid-row">
-              <div class="grid-column-2">
-                
-                <div class="card">
-                  <div class="card__title">
-                    <h2>Vehiculos</h2>
-                  </div>
-                  <div class="card__content">
-                    <h2>
-                      <?= count($vehiculos) ?>
-                    </h2>
-                  </div>
-                  <div class="card__foot"></div>
-                </div>
-                
-              </div>
-              
-              <div class="grid-column-2">
-                <div class="card">
-                  <div class="card__title">
-                    <h2>Motoristas</h2>
-                  </div>
-                  <div class="card__content">
-                    <h2>
-                      <?= count($motoristas) ?>
-                    </h2>
-                  </div>
-                  <div class="card__foot"></div>
-                </div>
-              </div>
-              <div class="grid-column-2">
-                <div class="card">
-                  <div class="card__title">
-                    <h2>Inventarios</h2>
-                  </div>
-                  <div class="card__content">
-                    <h2>
-                      <?= count($materiasPrimas) ?>
-                    </h2>
-                  </div>
-                  <div class="card__foot"></div>
-                </div>
-              </div>
-              <div class="grid-column-2">
-                <div class="card">
-                  <div class="card__title">
-                    <h2>Análisis</h2>
-                  </div>
-                  <div class="card__content">
-                    <h2>
-                      <?= count($materiasPrimasAnalisis) ?>
-                    </h2>
-                  </div>
-                  <div class="card__foot"></div>
-                </div>
-              </div>
+        </div>
+
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px;">
+          <img alt="" src="<?= __URL__ ?>/icons/motorista.svg" style="padding: 15px; background-color: #eb3461; border-radius: 100px;" />
+          <div style="display: flex; flex-direction: column; color:#ffffff;">
+            <div style="display: flex; gap: 20px; align-items: center;">
+              <span style="font-size: 30px; font-weight: bold;"><?= count($motoristas)?></span>
+              <span>Motoristas</span>
             </div>
+            <div style="color: #9CA3AF">
+              Motoristas registrados
+            </div>
+          </div>
+        </div>
+
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px;">
+          <img alt="" src="<?= __URL__ ?>/icons/inventory.svg" style="padding: 15px; background-color: #249c44; border-radius: 100px;" />
+          <div style="display: flex; flex-direction: column; color:#ffffff;">
+            <div style="display: flex; gap: 20px; align-items: center;">
+              <span style="font-size: 30px; font-weight: bold;"><?= count($materiasPrimas)?></span>
+              <span>Materias Primas</span>
+            </div>
+            <div style="color: #9CA3AF">
+              Materias Primas registrados
+            </div>
+          </div>
+        </div>
+
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px;">
+          <img alt="" src="<?= __URL__ ?>/icons/analisis.svg" style="padding: 15px; background-color: #d3be24; border-radius: 100px;" />
+          <div style="display: flex; flex-direction: column; color:#ffffff;">
+            <div style="display: flex; gap: 20px; align-items: center;">
+              <span style="font-size: 30px; font-weight: bold;"><?= count($materiasPrimasAnalisis)?></span>
+              <span>Analisis</span>
+            </div>
+            <div style="color: #9CA3AF">
+              Analisis registrados
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div style="padding: 20px; padding-top: 0px;">
+      <div style="display: flex; gap: 20px; width: 100%;">
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 40%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px;">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 60%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; flex-direction: column; align-items: end;">
+          <div class="">
+            <form class="header__content" action="<?= __URL__ ?>/reporte_calidad" method="GET">
+              <h3 class="title__2">Generar Reporte de Calidad</h3>
+              <div style="margin-right: 30px;">
+                <select class="form__control" id="" name="estado">
+                  <option value="Aprobado" selected>Aprobado</option>
+                  <option value="No Aprobado">No Aprobado</option>
+                </select>
+              </div>
+              <div class="form__controls">
+                <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
+              </div>
+            </form>
+          </div>
+    
+          <div class="">
+            <form class="header__content" action="<?= __URL__ ?>/reporte_peso" method="GET">
+              <h3 class="title__2">Generar Reporte de Peso de Materia Prima</h3>
+              <div style="margin-right: 30px;">
+                <input class="form__control" id="" name="fecha" type="date">
+              </div>
+              <div class="form__controls">
+                <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
+              </div>
+            </form>
+          </div>
+
+          <div class="">
+            <form class="header__content" action="<?= __URL__ ?>/reporte_control" method="GET">
+              <h3 class="title__2">Generar Reporte de Control de Salidas</h3>
+              <div style="margin-right: 30px;">
+                <input class="form__control" id="" name="fecha" type="date">
+              </div>
+              <div class="form__controls">
+                <input class="form__control form__control-button" name="" type="submit" value="Exportar"/>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
 
+    
+    
+
+    
+    
+
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
      const motivos = <?= json_encode($motivosConteo) ?>;

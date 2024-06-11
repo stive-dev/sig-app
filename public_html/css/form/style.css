@@ -6,7 +6,7 @@
 
 .form__content {
     flex-basis: 420px;
-    background-color: #3F3E4C;
+    background-color: #313348;
     padding: 50px;
     border-radius: 10px;
     display: flex;
@@ -33,13 +33,13 @@
 
 .form__control:hover {
     outline-style: solid;
-    outline-color: #00C893;
+    outline-color: #9086a9;
     outline-width: 2px;
 }
 
 .form__control:focus {
     outline-style: solid;
-    outline-color: #00C893;
+    outline-color: #9086a9;
     outline-width: 2px;
 }
 
@@ -56,5 +56,5 @@
 }
 
 .form__control-button {
-    background-color: #00C893;
+    background-color: #9086a9;
 }

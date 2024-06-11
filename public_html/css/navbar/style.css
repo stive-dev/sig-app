@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #3F3E4C;
+    background-color: #6f6486;
     height: 64px;
     box-sizing: border-box;
     padding: 10px;
@@ -40,11 +40,11 @@
 }
 
 .navbar__option:hover {
-    background-color: #00C893;
+    background-color: #9086a9;
 }
 
 .navbar__option--active {
-    background-color: #00C893;
+    background-color: #9086a9;
 }
 
 .navbar__option--session {

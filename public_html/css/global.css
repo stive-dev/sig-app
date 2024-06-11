@@ -8,7 +8,7 @@ body, h1, h2, h3, h4, p {
 }
 
 body {
-    background-color: #151420;
+    background-color: #2a2b3d;
     font-family: "Open Sans";
 }
 
@@ -67,12 +67,11 @@ body {
 }
 
 .card {
-    background-color: #262437;
+    background-color: #313348;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-radius: 10px;
     overflow: hidden;
 }
 

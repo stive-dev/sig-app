@@ -1,17 +1,19 @@
 .table__container {
-    padding: 0px 60px 0px 60px;
+    padding: 0px 20px 0px 20px;
+    
 }
 
 
 .table__content {
+    border-radius: 10px;
     width: 100%;
     border-collapse: collapse;
-    background-color: #201e2f;
-    border-radius: 10px;
+    background-color: #313348;
+    overflow: hidden;
 }
 
 .table__head {
-    background-color: #3F3E4C;
+    background-color: #6f6486;
     height: 54px;
     color: #ffffff;
 }
@@ -41,15 +43,15 @@
 }
 
 .table__option--modify {
-    background-color: #F9B260;
+    background-color: #67a179;
 }
 
 .table__option--delete {
-    background-color: #e1646a;
+    background-color: #eb3461;
 }
 
 .table__option:hover {
-    background-color: #00C893;
+    background-color: #9086a9;
 }
 
 .table__td--options {

@@ -31,14 +31,16 @@
     
     <?php require_once __ROOT_PATH__ . "/app/views/components/navbar.php" ?>
     <!-- TEMPLATE CODE -->
-
-    
-    <div class="header">
-      <div class="header__content">
-        <h2 class="title__2">Materias Primas en el Sistema <?= count($materiasPrimas) ?></h2>
-      </div>
-      <div class="header__content">
-        <a href="<?php echo __URL__ . '/materias_primas/add'; ?>" class="navbar__option navbar__option--active">Agregar Nuevo</a>
+    <div style="padding: 20px; padding-bottom: 0px; color: #ffffff;">
+      <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; justify-content: space-between;">
+          <div><h2>MATERIAS PRIMAS EN EL SISTEMA</h2></div>
+          <div>
+            <div class="">
+              <a href="<?php echo __URL__ . '/materias_primas/add'; ?>" class="navbar__option navbar__option--active">Agregar Nuevo</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -66,9 +68,10 @@
                 <td class="table__td"><?= $materiaPrima->tipo ?></td>
                 <td class="table__td"><?= $materiaPrima->proveedor ?></td>
                 <td class="table__td"><?= $materiaPrima->descripcion ?></td>
+
                 <td class="table__td table__td--options">
-                  <a href="<?php echo __URL__ . '/materias_primas/modify?id=' . $materiaPrima->id; ?>" class="table__option table__option--modify">Modificar</a>
-                  <a href="<?php echo __URL__ . '/materias_primas/delete?id=' . $materiaPrima->id; ?>" class="table__option table__option--delete">Borrar</a>
+                  <a href="<?php echo __URL__ . '/materias_primas/modify?id=' . $materiaPrima->id; ?>" class="table__option table__option--modify"><img src="<?= __URL__ ?>/icons/edit.svg" /></a>
+                  <a href="<?php echo __URL__ . '/materias_primas/delete?id=' . $materiaPrima->id; ?>" class="table__option table__option--delete"><img src="<?= __URL__ ?>/icons/delete.svg" /></a>
                 </td>
               </tr>
             <?php else: ?>
@@ -78,8 +81,8 @@
                 <td class="table__td"><?= $materiaPrima->proveedor ?></td>
                 <td class="table__td"><?= $materiaPrima->descripcion ?></td>
                 <td class="table__td table__td--options">
-                  <a href="<?php echo __URL__ . '/materias_primas/modify?id=' . $materiaPrima->id; ?>" class="table__option table__option--modify">Modificar</a>
-                  <a href="<?php echo __URL__ . '/materias_primas/delete?id=' . $materiaPrima->id; ?>" class="table__option table__option--delete">Borrar</a>
+                  <a href="<?php echo __URL__ . '/materias_primas/modify?id=' . $materiaPrima->id; ?>" class="table__option table__option--modify"><img src="<?= __URL__ ?>/icons/edit.svg" /></a>
+                  <a href="<?php echo __URL__ . '/materias_primas/delete?id=' . $materiaPrima->id; ?>" class="table__option table__option--delete"><img src="<?= __URL__ ?>/icons/delete.svg" /></a>
                 </td>
               </tr>
             <?php endif ?>

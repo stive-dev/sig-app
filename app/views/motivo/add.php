@@ -32,13 +32,16 @@
     
     <?php require_once __ROOT_PATH__ . "/app/views/components/navbar.php" ?>
     <!-- TEMPLATE CODE -->
-
-    <div class="header">
-      <div class="header__content">
-        <h2 class="title__2">Agregar Motorista al Sistema</h2>
-      </div>
-      <div class="header__content">
-        <a href="<?php echo __URL__ . '/motivos'; ?>" class="navbar__option navbar__option--active">Regresar</a>
+    <div style="padding: 20px; color: #ffffff;">
+      <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
+        <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; justify-content: space-between;">
+          <div><h2>AGREGAR MOTIVOS AL SISTEMA</h2></div>
+          <div>
+            <div class="">
+              <a href="<?php echo __URL__ . '/motivos'; ?>" class="navbar__option navbar__option--active">Volver</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
