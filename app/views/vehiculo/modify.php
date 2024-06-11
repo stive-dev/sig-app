@@ -35,7 +35,7 @@
     <div style="padding: 20px; color: #ffffff;">
       <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
         <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; justify-content: space-between;">
-          <div><h2>MODIFICAR VEHICULOS EN EL SISTEMA</h2></div>
+          <div><h2>MODIFICAR VEHICULO EN EL SISTEMA</h2></div>
           <div>
             <div class="">
               <a href="<?php echo __URL__ . '/vehiculos'; ?>" class="navbar__option navbar__option--active">Volver</a>
