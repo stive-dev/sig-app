@@ -163,7 +163,7 @@
      let motivo_titulo = []
      let motivo_value = []
      motivos.forEach(motivo => {
-       motivo_titulo.push(motivo.motivo_salida)
+       motivo_titulo.push(motivo.motivo_entrada)
        motivo_value.push(motivo.motivo_count)
      })
 
@@ -173,7 +173,7 @@
        data: {
          labels: motivo_titulo,
          datasets: [{
-           label: 'Recuento de Motivos de Salida',
+           label: 'Recuento de Motivos de Entrada',
            data: motivo_value,
            borderWidth: 1
          }]
