@@ -98,12 +98,12 @@ INSERT INTO materia_prima(tipo,proveedor,descripcion)VALUES('Soja Amarrilla','jg
 INSERT INTO materia_prima(tipo,proveedor,descripcion)VALUES('Soja verde','indesa S.A de C.V',"Grano de soja verde");
 INSERT INTO materia_prima(tipo,proveedor,descripcion)VALUES('Maiz Amarrillo nacional','travelmac S.A de C.V',"Grano de maiz nacional");
 
-INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('150','1','1','0.10','0.03','65435','0.94','0.03','0.02','0,01','Aprovado');
-INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('152','2','1','0.10','0.03','65436','0.97','0.03','0.00','0,00','Aprovado');
-INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('153','2','1','0.10','0.02','65437','0.94','0.03','0.03','0,00','Aprovado');
-INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('154','3','1','0.10','0.02','65438','0.93','0.03','0.03','0,01','Aprovado');
-INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('155','3','1','0.10','0.05','65439','0.99','0.01','0.00','0,00','Aprovado');
-INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('156','5','1','0.10','0.06','65440','0.90','0.05','0.04','0,01','Aprovado');
+INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('150','1','1','0.10','0.03','65435','0.94','0.03','0.02','0,01','Aprobado');
+INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('152','2','1','0.10','0.03','65436','0.97','0.03','0.00','0,00','Aprobado');
+INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('153','2','1','0.10','0.02','65437','0.94','0.03','0.03','0,00','Aprobado');
+INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('154','3','1','0.10','0.02','65438','0.93','0.03','0.03','0,01','Aprobado');
+INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('155','3','1','0.10','0.05','65439','0.99','0.01','0.00','0,00','Aprobado');
+INSERT INTO materia_prima_analisis(lote, id_materia_prima,cantidad_muestra,humedad,impureza,numero_pesa,tamiz_1,tamiz_2,tamiz_3,tamiz_4, estado)VALUES('156','5','1','0.10','0.06','65440','0.90','0.05','0.04','0,01','Aprobado');
 
 INSERT INTO motivo(motivo) VALUES
 ('Compra'),

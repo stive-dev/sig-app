@@ -124,7 +124,7 @@
     
           <div class="">
             <form class="header__content" action="<?= __URL__ ?>/reporte_peso" method="GET">
-              <h3 class="title__2">Generar Reporte de Peso de Materia Prima</h3>
+              <h3 class="title__2">Generar Reporte de Pesado</h3>
               <div style="margin-right: 30px;">
                 <input class="form__control" id="" name="fecha" type="date">
               </div>
@@ -136,7 +136,7 @@
 
           <div class="">
             <form class="header__content" action="<?= __URL__ ?>/reporte_control" method="GET">
-              <h3 class="title__2">Generar Reporte de Control de Salidas</h3>
+              <h3 class="title__2">Generar Reporte de Control de Entradas</h3>
               <div style="margin-right: 30px;">
                 <input class="form__control" id="" name="fecha" type="date">
               </div>

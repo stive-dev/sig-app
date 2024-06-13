@@ -15,7 +15,6 @@ class SessionController extends Controller {
 
     $userModel = new UserModel([], "usuario");
     $user = $userModel->raw("SELECT * FROM usuario WHERE email='$email'")[0];
-    echo $user->contrasena;
     
     if(password_verify($password, $user->contrasena)) {
       return 1;
