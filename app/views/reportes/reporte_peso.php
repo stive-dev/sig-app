@@ -1,9 +1,9 @@
 <?php
 
-$row = '<table><tr><td>Fecha de Ingreso</td><td>Tipo</td><td>Pesa</td></tr>';
+$row = '<table><tr><td>Pesa</td><td>Placa</td><td>Vehiculo</td><td>Peso Entrada</td><td>Peso Salida</td><td>Peso Diferencia</td><td>Fecha de Salida</td></tr>';
 
 foreach($resultado as $res) {
-  $row = $row . '<tr>' . '<td>'. $res->fecha_entrada . '</td><td>' . $res->tipo . '</td><td>' . $res->pesa . '</td></tr>';
+  $row = $row . '<tr>' . '<td>'. $res->pesa . '</td><td>' . $res->placa . '</td><td>' . $res->tipo. '</td><td>' . $res->peso_entrada . '</td><td>' . $res->peso_salida . '</td><td>' . $res->diferencia. '</td><td>' . $res->fecha_salida. '</td></tr>';
 }
 
 $row = $row . '</table>';
@@ -16,17 +16,11 @@ $file =
   '<hr/>' .
   '<div>' .
   '<h3>Periodo</h3>' .
-  '<div style="padding-left: 40px">' . $resultado[0]->fecha_entrada . '</div>' .
-  '<h3>Conteo de Materias Primas</h3>' .
+  '<div style="padding-left: 40px">' . $resultado[0]->fecha_salida . '</div>' .
+  '<h3>Conteo Pesado</h3>' .
   '<div style="padding-left: 40px">' . count($resultado) . '</div>' .
   '</div>' .
-  '<h3>Materia Prima con Más Lotes</h3>' .
-  '<div style="padding-left: 40px">' . $resultado_existencia[0]->tipo_conteo . ' - ' . $resultado_existencia[0]->tipo . '</div>' .
-  '<h3>Materia Prima con Menos Lotes</h3>' .
-  '<div style="padding-left: 40px">' . $resultado_menos_existencia[0]->tipo_conteo . ' - ' . $resultado_menos_existencia[0]->tipo . '</div>' .
-  '</div>' .
-  '<h3>Materia Prima Ingresada</h3>' .
-
+  '<h3>Control de Pesado</h3>' .
   '<div style="padding-left: 40px">' . $row . '</div>' .
   '</div>' 
 . '</body></html>';

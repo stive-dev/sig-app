@@ -14,6 +14,7 @@
     <?php $options = [
       "Dashboard",
       "Control",
+      "Pesado",
       "Inventario",
       "Análisis de inventario",
       "Motivos",
@@ -23,6 +24,7 @@
     <?php $url = [
       __URL__ . "/dashboard",
       __URL__ . "/controles",
+      __URL__ . "/pesos",
       __URL__ . "/materias_primas",
       __URL__ . "/materias_primas_analisis",
       __URL__ . "/motivos",
@@ -80,39 +82,40 @@
           </select>
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Número Pesa</label>
           <input class="form__control" name="numero_pesa" type="text" value="0" placeholder=""/> 
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Número Orden</label>
-          <input class="form__control" name="numero_orden" type="text" value="" placeholder=""/> 
+          <input class="form__control" name="numero_orden" type="text" value="" placeholder="#"/> 
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Peso Salida</label>
-          <input class="form__control" name="peso_salida" type="text" value="" placeholder="0.00"/> 
+          <input class="form__control" name="peso_salida" type="text" value="0.00" placeholder="0.00"/> 
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Motivo Salida</label>
           <!-- <input class="form__control" name="motivo_salida" type="text" value="" placeholder="00000000-0"/> -->
-          <select class="form__control" id="" name="motivo_salida">
-            <?php foreach($motivos as $motivo): ?>
-              <option value="<?= $motivo->motivo ?>"><?= $motivo->motivo ?></option>
-            <?php endforeach ?>
-          </select>
+          <input name="motivo_salida" type="text" value="0"/>
+          <!-- <select class="form__control" id="" name="motivo_salida">
+               <?php foreach($motivos as $motivo): ?>
+               <option value="<?= $motivo->motivo ?>"><?= $motivo->motivo ?></option>
+               <?php endforeach ?>
+               </select> -->
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Fecha Salida</label>
-          <input class="form__control" name="fecha_salida" type="date" value="" placeholder="00000000-0"/> 
+          <input class="form__control" name="fecha_salida" type="date" placeholder="00000000-0" value="<?php echo date('Y-m-d'); ?>" /> 
         </div>
 
         <div class="form__controls">
           <label class="form__label" for="">Peso Entrada</label>
-          <input class="form__control" name="peso_entrada" type="text" value="" placeholder="0.00"/> 
+          <input class="form__control" name="peso_entrada" type="text" placeholder="0.00" value="" /> 
         </div>
 
         <div class="form__controls">
@@ -127,7 +130,7 @@
 
         <div class="form__controls">
           <label class="form__label" for="">Fecha Entrada</label>
-          <input class="form__control" name="fecha_entrada" type="date" value="" placeholder="00000000-0"/> 
+          <input class="form__control" name="fecha_entrada" type="date" placeholder="00000000-0" value="<?php echo date('Y-m-d'); ?>" /> 
         </div>
 
         

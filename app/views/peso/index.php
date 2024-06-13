@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Control" ?>
+    <?php $active = "Pesado" ?>
     <?php $options = [
       "Dashboard",
       "Control",
@@ -39,7 +39,7 @@
     <div style="padding: 20px; padding-bottom: 0px; color: #ffffff;">
       <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
         <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; justify-content: space-between;">
-          <div><h2>CONTROLES EN EL SISTEMA</h2></div>
+          <div><h2>PESADOS EN EL SISTEMA</h2></div>
           <div>
             <form class="" style="display: flex; gap: 20px; align-items: center;">
               <div class="">
@@ -89,13 +89,11 @@
       <table class="table__content">
         <thead class="table__head">
           <th>Id</th>
-          <th>Materia</th>
           <th>Vehiculo</th>
           <th>Motorista</th>
-          <th># Orden</th>
-          <th>Ps Entrada</th>
-          <th>Mtv Entrada</th>
-          <th>Entrada</th>
+          <th># Pesa</th>
+          <th>Ps Salida</th>
+          <th>Salida</th>
           <th>Controles</th>
         </thead>
         <tbody class="table__body">
@@ -104,31 +102,27 @@
             <?php if($i % 2 == 0): ?>
               <tr class="table__row">
                 <td class="table__td"><?= $control->id ?></td>
-                <td class="table__td"><?= $control->id_materia_prima ?></td>
                 <td class="table__td"><?= $control->placa_vehiculo ?></td>
                 <td class="table__td"><?= $control->dui_motorista ?></td>
-                <td class="table__td"><?= $control->numero_orden ?></td>
-                <td class="table__td"><?= $control->peso_entrada ?></td>
-                <td class="table__td"><?= $control->motivo_entrada ?></td>
-                <td class="table__td"><?= $control->fecha_entrada ?></td>
+                <td class="table__td"><?= $control->numero_pesa ?></td>
+                <td class="table__td"><?= $control->peso_salida ?></td>
+                <td class="table__td"><?= $control->fecha_salida ?></td>
                 <td class="table__td table__td--options">
-                  <a href="<?php echo __URL__ . '/controles/modify?id=' . $control->id; ?>" class="table__option table__option--modify"><img src="<?= __URL__ ?>/icons/edit.svg" /></a>
-                  <a href="<?php echo __URL__ . '/controles/delete?id=' . $control->id; ?>" class="table__option table__option--delete"><img src="<?= __URL__ ?>/icons/delete.svg" /></a>
+                  <a href="<?php echo __URL__ . '/pesos/modify?id=' . $control->id; ?>" class="table__option table__option--modify"><img src="<?= __URL__ ?>/icons/edit.svg" /></a>
+                  <a href="<?php echo __URL__ . '/pesos/delete?id=' . $control->id; ?>" class="table__option table__option--delete"><img src="<?= __URL__ ?>/icons/delete.svg" /></a>
                 </td>
               </tr>
             <?php else: ?>
               <tr class="table__row table__row--1">
                 <td class="table__td"><?= $control->id ?></td>
-                <td class="table__td"><?= $control->id_materia_prima ?></td>
                 <td class="table__td"><?= $control->placa_vehiculo ?></td>
                 <td class="table__td"><?= $control->dui_motorista ?></td>
-                <td class="table__td"><?= $control->numero_orden ?></td>
-                <td class="table__td"><?= $control->peso_entrada ?></td>
-                <td class="table__td"><?= $control->motivo_entrada ?></td>
-                <td class="table__td"><?= $control->fecha_entrada ?></td>
+                <td class="table__td"><?= $control->numero_pesa ?></td>
+                <td class="table__td"><?= $control->peso_salida ?></td>
+                <td class="table__td"><?= $control->fecha_salida ?></td>
                 <td class="table__td table__td--options">
-                  <a href="<?php echo __URL__ . '/controles/modify?id=' . $control->id; ?>" class="table__option table__option--modify"><img src="<?= __URL__ ?>/icons/edit.svg" /></a>
-                  <a href="<?php echo __URL__ . '/controles/delete?id=' . $control->id; ?>" class="table__option table__option--delete"><img src="<?= __URL__ ?>/icons/delete.svg" /></a>
+                  <a href="<?php echo __URL__ . '/pesos/modify?id=' . $control->id; ?>" class="table__option table__option--modify"><img src="<?= __URL__ ?>/icons/edit.svg" /></a>
+                  <a href="<?php echo __URL__ . '/pesos/delete?id=' . $control->id; ?>" class="table__option table__option--delete"><img src="<?= __URL__ ?>/icons/delete.svg" /></a>
                 </td>
               </tr>
             <?php endif ?>

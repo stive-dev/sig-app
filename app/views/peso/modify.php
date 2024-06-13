@@ -10,7 +10,7 @@
 
     
     <!-- TEMPLATE CODE -->
-    <?php $active = "Control" ?>
+    <?php $active = "Pesado" ?>
     <?php $options = [
       "Dashboard",
       "Control",
@@ -37,10 +37,10 @@
     <div style="padding: 20px; color: #ffffff;">
       <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
         <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; justify-content: space-between;">
-          <div><h2>MODIFICAR CONTROL EN EL SISTEMA</h2></div>
+          <div><h2>PESAR EN EL SISTEMA</h2></div>
           <div>
             <div class="">
-              <a href="<?php echo __URL__ . '/controles'; ?>" class="navbar__option navbar__option--active">Volver</a>
+              <a href="<?php echo __URL__ . '/pesos'; ?>" class="navbar__option navbar__option--active">Volver</a>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
         </div>
 
         
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Materia Prima</label>
           <select class="form__control" id="" name="id_materia_prima">
             <?php foreach($materiasPrimas as $materiaPrima): ?>
@@ -94,17 +94,17 @@
           </select>
         </div>
 
-        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
+        <div class="form__controls">
           <label class="form__label" for="">Número Pesa</label>
-          <input class="form__control" name="numero_pesa" type="text" value="<?= $control->numero_pesa ?>" placeholder="00000000-0"/> 
+          <input class="form__control" name="numero_pesa" type="text" value="<?= $control->numero_pesa ?>" placeholder="00000000-0" /> 
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Número Orden</label>
           <input class="form__control" name="numero_orden" type="text" value="<?= $control->numero_orden ?>" placeholder="00000000-0"/> 
         </div>
 
-        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
+        <div class="form__controls">
           <label class="form__label" for="">Peso Salida</label>
           <input class="form__control" name="peso_salida" type="text" value="<?= $control->peso_salida ?>" placeholder="00000000-0"/> 
         </div>
@@ -123,17 +123,17 @@
           </select>
         </div>
 
-        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
+        <div class="form__controls">
           <label class="form__label" for="">Fecha Salida</label>
           <input class="form__control" name="fecha_salida" type="date" value="<?= $control->fecha_salida ?>" placeholder="00000000-0"/> 
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Peso Entrada</label>
           <input class="form__control" name="peso_entrada" type="text" value="<?= $control->peso_entrada ?>" placeholder="00000000-0"/> 
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Motivo Entrada</label>
           <!-- <input class="form__control" name="motivo_entrada" type="text" value="<?= $control->motivo_entrada?>" placeholder="00000000-0"/> -->
           <select class="form__control" id="" name="motivo_entrada">
@@ -147,7 +147,7 @@
           </select>
         </div>
 
-        <div class="form__controls">
+        <div class="form__controls" style="visibility: hidden; height: 0px !important; overflow: hidden; position: absolute;">
           <label class="form__label" for="">Fecha Entrada</label>
           <input class="form__control" name="fecha_entrada" type="date" value="<?= $control->fecha_entrada ?>" placeholder="00000000-0"/> 
         </div>

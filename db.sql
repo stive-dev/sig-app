@@ -112,5 +112,4 @@ INSERT INTO motivo(motivo) VALUES
 ('Sin Asignar');
 
 INSERT INTO usuario(dui, nombres, apellido, email, contrasena, rol) VALUES
-('12345678-9', 'Administrador', 'Administrador', 'admin@gmail.com', '$2y$10$ksT57Bwjg8PG2AVhlYvz9uONXJ3StQ1cCx9uEh8G7vgW1X.Kyf.KO
-', 'admin');
+('12345678-9', 'Administrador', 'Administrador', 'admin@gmail.com', '$2y$10$xIJSs6GLSA3A47CE4VcijuG5fMJrkTbqfd3SUrB/lVn/GrqI/D1z2', 'admin');

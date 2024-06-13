@@ -13,6 +13,7 @@
     <?php $options = [
       "Dashboard",
       "Control",
+      "Pesado",
       "Inventario",
       "Análisis de inventario",
       "Motivos",
@@ -22,6 +23,7 @@
     <?php $url = [
       __URL__ . "/dashboard",
       __URL__ . "/controles",
+      __URL__ . "/pesos",
       __URL__ . "/materias_primas",
       __URL__ . "/materias_primas_analisis",
       __URL__ . "/motivos",
@@ -31,6 +33,9 @@
     
     <?php require_once __ROOT_PATH__ . "/app/views/components/navbar.php" ?>
     <!-- TEMPLATE CODE -->
+
+
+    
     <div style="padding: 20px; padding-bottom: 0px; color: #ffffff;">
       <div style="display: flex; gap: 20px; width: 100%; padding-bottom: 0px;">
         <div style="border-radius: 10px; padding: 10px; box-sizing: border-box; flex-basis: 30%; flex-grow: 1; background-color: #313348; display: flex; align-items: center; gap: 20px; justify-content: space-between;">

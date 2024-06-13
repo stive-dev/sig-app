@@ -14,6 +14,7 @@
     <?php $options = [
       "Dashboard",
       "Control",
+      "Pesado",
       "Inventario",
       "Análisis de inventario",
       "Motivos",
@@ -23,6 +24,7 @@
     <?php $url = [
       __URL__ . "/dashboard",
       __URL__ . "/controles",
+      __URL__ . "/pesos",
       __URL__ . "/materias_primas",
       __URL__ . "/materias_primas_analisis",
       __URL__ . "/motivos",

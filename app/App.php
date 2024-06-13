@@ -10,6 +10,7 @@ require_once "controllers/ControlController.php";
 require_once "controllers/MateriaPrimaAnalisisController.php";
 require_once "controllers/DashboardController.php";
 require_once "controllers/SessionController.php";
+require_once "controllers/PesoController.php";
 require_once "models/MateriaPrimaModel.php";
 use Dompdf\Dompdf;
 
@@ -20,8 +21,13 @@ if(isset($_GET["url"])) {
   $url = $_GET["url"];
 }
 
+if($url == "u") {
+  echo password_hash("admin", PASSWORD_DEFAULT);
+}
+
 // routes
 if($url == "login") {
+  
   $sessionController = new SessionController();
   $sessionController->index();
 }else if($url == "login/auth") {
@@ -31,7 +37,7 @@ if($url == "login") {
     $_SESSION["email"] = $_POST["email"];
     header("Location: " . __URL__ . "/dashboard");
   }else {
-    echo "error";
+    header("Location: " . __URL__ . "/login");
   }
 }else if($url == "login/out") {
   $sessionController = new SessionController();
@@ -223,6 +229,22 @@ try {
 }
 
 
+// peso
+try {
+  if($url == "pesos") {
+    SessionController::verify();
+    $pesoController = new PesoController();
+    $pesoController->index();
+  }else if($url == "pesos/modify") {
+    SessionController::verify();
+    $pesoController = new PesoController();
+    $pesoController->modify();
+  }else if($url == "pesos/update") {
+    SessionController::verify();
+    $pesoController = new PesoController();
+    $pesoController->update();
+  }
+} catch(Exception $error) {}
 
 
 
@@ -275,14 +297,11 @@ if($url == "reporte_peso") {
   $fecha = $_GET["fecha"];
   $materiaPrimaModel = new MateriaPrimaModel([] , "materia_prima");
 
-  $resultado = $materiaPrimaModel->raw("SELECT 
-control.fecha_entrada as fecha_entrada, 
-materia_prima.tipo as tipo, 
-materia_prima_analisis.numero_pesa as pesa
-FROM control 
-INNER JOIN materia_prima ON control.id_materia_prima=materia_prima.id
-INNER JOIN materia_prima_analisis ON control.id_materia_prima=materia_prima_analisis.id_materia_prima
-WHERE control.fecha_entrada='$fecha';");
+  // solo del que ha llevado acabo el control
+  $resultado = $materiaPrimaModel->raw("
+SELECT control.numero_pesa as pesa, vehiculo.placa as placa, vehiculo.tipo as tipo, control.peso_entrada, control.peso_salida, ABS(control.peso_entrada - control.peso_salida) as diferencia, control.fecha_salida FROM control 
+INNER JOIN vehiculo ON control.placa_vehiculo=vehiculo.placa
+WHERE control.peso_salida!=0 AND control.fecha_salida='$fecha';");
 
   $resultado_existencia = $materiaPrimaModel->raw("SELECT 
 control.fecha_entrada as fecha_entrada, 
@@ -323,13 +342,13 @@ if($url == "reporte_control") {
 control.fecha_salida as fecha_entrada, 
 vehiculo.tipo as tipo,
 CONCAT_WS(' ', motorista.nombres, motorista.apellidos) as nombre,
-control.motivo_salida as motivo_salida
+control.motivo_entrada as motivo_entrada
 FROM control 
 INNER JOIN vehiculo ON control.placa_vehiculo=vehiculo.placa
 INNER JOIN motorista ON control.dui_motorista=motorista.dui
 WHERE control.fecha_salida='$fecha';");
 
-  $resultado_existencia = $materiaPrimaModel->raw("SELECT motivo_salida, count(motivo_salida) AS conteo FROM control  WHERE control.fecha_entrada='$fecha' GROUP BY motivo_salida;");
+  $resultado_existencia = $materiaPrimaModel->raw("SELECT motivo_entrada, count(motivo_salida) AS conteo FROM control  WHERE control.fecha_entrada='$fecha' GROUP BY motivo_entrada;");
 
   $resultado_menos_existencia = $materiaPrimaModel->raw("SELECT 
 control.fecha_entrada as fecha_entrada, 
@@ -355,7 +374,7 @@ if($url == "reporte_calidad") {
   $estado = $_GET["estado"];
   $materiaPrimaModel = new MateriaPrimaModel([] , "materia_prima");
 
-  $resultado = $materiaPrimaModel->raw("SELECT materia_prima.tipo as materia, materia_prima_analisis.cantidad_muestra as cantidad, materia_prima_analisis.impureza as impureza, materia_prima_analisis.numero_pesa as pesa, materia_prima_analisis.estado AS estado FROM materia_prima_analisis INNER JOIN materia_prima ON materia_prima_analisis.id_materia_prima=materia_prima.id WHERE materia_prima_analisis.estado='$estado';");
+  $resultado = $materiaPrimaModel->raw("SELECT materia_prima_analisis.lote as lote, materia_prima.tipo as materia, materia_prima_analisis.cantidad_muestra as cantidad, materia_prima_analisis.impureza as impureza, materia_prima_analisis.numero_pesa as pesa, materia_prima_analisis.estado AS estado FROM materia_prima_analisis INNER JOIN materia_prima ON materia_prima_analisis.id_materia_prima=materia_prima.id WHERE materia_prima_analisis.estado='$estado';");
 
   $resultado_existencia = $materiaPrimaModel->raw("SELECT ROUND(AVG(materia_prima_analisis.impureza),5) as prom_1, ROUND(VARIANCE(materia_prima_analisis.impureza),5) AS prom_2 FROM materia_prima_analisis WHERE estado='$estado';");
 

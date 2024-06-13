@@ -5,6 +5,7 @@
 $icons = [
   "/icons/dashboard.svg",
   "/icons/control.svg",
+  "/icons/scale.svg",
   "/icons/inventory.svg",
   "/icons/analisis.svg",
   "/icons/out.svg",
